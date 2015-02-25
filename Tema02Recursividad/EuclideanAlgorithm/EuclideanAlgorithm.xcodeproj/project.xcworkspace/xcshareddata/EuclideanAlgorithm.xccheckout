@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9C46AE15-DBCF-4443-AAFE-8E5D16D88BB0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EuclideanAlgorithm</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BA2B7A3B814248ABD71812296049000238C85E4A</key>
+		<string>https://github.com/gerardogtn/Estructura_de_datos.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Tema02_recursividad/EuclideanAlgorithm/EuclideanAlgorithm.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BA2B7A3B814248ABD71812296049000238C85E4A</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gerardogtn/Estructura_de_datos.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BA2B7A3B814248ABD71812296049000238C85E4A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BA2B7A3B814248ABD71812296049000238C85E4A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Estructura_de_datos</string>
+		</dict>
+	</array>
+</dict>
+</plist>
