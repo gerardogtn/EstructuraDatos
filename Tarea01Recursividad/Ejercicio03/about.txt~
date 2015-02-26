@@ -1,0 +1,10 @@
+El ejercicio03, calcula el numero de caminos posibles que se pueden tomar
+si se quiere llegar a la casilla (n - 1, m - 1) de la casilla (0, 0).
+Con las siguientes restricciones:
+
+A) Solamente se puede hacer movimiento hacia la derecha y hacia abajo.
+B) Si se realiza un movimiento hacia la derecha, se deben de mover 3 unidades.
+C) Si se realiza un movimiento hacia la izquierda, se deben de mover 2 unidades.
+
+No existe comportamiento especificado para valores de n que no sean
+multiplos de tres o para valores de m que no sean multiplos de dos. 

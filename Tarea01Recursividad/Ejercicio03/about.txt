@@ -1,0 +1,51 @@
+#############################################################################
+                                ENGLISH
+#############################################################################
+The file Ejercicio03 computes the number of distinct paths that can be
+taken in a square grid from cell (0, 0) to cell (n - 1, m - 1). The function
+consumes the number of columns (n) and number of rows (m) in the grid. The
+restrictions for the number of paths are the following.
+
+A) Paths can only be taken by moving to the right or moving down.
+B) If the path is taken to the right, it must move three cells.
+C) If the path is taken down, it must move two cells.
+
+There is no specified behaviour for inputs when n is not a multiple of 3
+and when m is not a multiple of two.
+
+The implementation was tested with the following cases:
+
+ 
+//    cout << (numPaths(0, 0 ) == 0) << endl;
+//    cout << (numPaths(3, 0 ) == 1) << endl;
+//    cout << (numPaths(0, 2 ) == 1) << endl;
+//    cout << (numPaths(3, 2 ) == 2) << endl;
+//    cout << (numPaths(6, 2 ) == 3) << endl;
+//    cout << (numPaths(3, 4 ) == 3) << endl;
+//    cout << (numPaths(6, 4 ) == 6) << endl;
+
+#############################################################################
+                                SPANISH
+#############################################################################
+
+El ejercicio03, calcula el numero de caminos posibles que se pueden tomar
+si se quiere llegar a la casilla (n - 1, m - 1) de la casilla (0, 0).
+Con las siguientes restricciones:
+
+A) Solamente se puede hacer movimiento hacia la derecha y hacia abajo.
+B) Si se realiza un movimiento hacia la derecha, se deben de mover 3 unidades.
+C) Si se realiza un movimiento hacia la izquierda, se deben de mover 2 unidades.
+
+No existe comportamiento especificado para valores de n que no sean
+multiplos de tres o para valores de m que no sean multiplos de dos.
+
+La implementacion fue probada con los siguientes casos:
+ 
+//    cout << (numPaths(0, 0 ) == 0) << endl;
+//    cout << (numPaths(3, 0 ) == 1) << endl;
+//    cout << (numPaths(0, 2 ) == 1) << endl;
+//    cout << (numPaths(3, 2 ) == 2) << endl;
+//    cout << (numPaths(6, 2 ) == 3) << endl;
+//    cout << (numPaths(3, 4 ) == 3) << endl;
+//    cout << (numPaths(6, 4 ) == 6) << endl;
+
