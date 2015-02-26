@@ -67,7 +67,7 @@ static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[]
         }
     }
     
-    return found; 
+    return found;
 }
 
 
@@ -77,7 +77,7 @@ static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[]
 // MODIFIES: None.
 // EFFECTS:  If keyToSearch is equal to current value of the array, returns the index. If not, transverses
 // the array until the key is found, OR until thelast position is reached. If the former occurs, return
-// false.
+// -1.
 static bool GenericSearch_GenericSearch_h::linearSearchPosition(const T searchingArray[], T keyToSearch,
                                                         int sizeOfArray){
     int  i = 0;
@@ -89,8 +89,7 @@ static bool GenericSearch_GenericSearch_h::linearSearchPosition(const T searchin
         }
         i++;
     }
-    
-    return --i;
+    found? return --i : return -1;
 }
 
 
@@ -98,9 +97,10 @@ static bool GenericSearch_GenericSearch_h::linearSearchPosition(const T searchin
 // Performs a binary search on an array until the key is found.
 // REQUIRES: The array is sorted.
 // MODIFIES: None.
-// EFFECTS:  Compares the keyToSearch in to the midvalue of the array. If they are equal, return true. If
-// the key is smaller, adjusts the search boundaries (move upperBoundary to middle point). Else, adjust
-// the boundary to fit the case (move lowerBoundary to midPoint + 1)
+// EFFECTS:  Compares the keyToSearch in to the midvalue of the array. If they are equal, return the
+// position of the midvalue. If the key is smaller, adjusts the search boundaries (move upperBoundary to
+// middle point). Else, adjust the boundary to fit the case (move lowerBoundary to midPoint + 1). If no
+// value is found, returns -1.
 static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[], T keyToSearch,
                                                         int lowerBoundary, int upperBoundary){
     int lowBound = lowerBoundary;
