@@ -13,11 +13,11 @@ template <typename T>
 class GenericSearch{
 public:
     // Proof of existence functions
-    static bool linearSearch(const T searchingArray[], T keyToSearch, int sizeOfArray);
-    static bool binarySearch(const T searchingArray[], T keyToSearch, int lowerBoundary, int upperBoundary);
+    static bool linearSearch(const T searchingArray[], const T keyToSearch, const int sizeOfArray);
+    static bool binarySearch(const T searchingArray[], const T keyToSearch, int lowerBoundary, int upperBoundary);
     // Proof of position functions
-    static int linearSearchPosition(const T searchingArray[], T keyToSearch, int sizeOfArray);
-    static int binarySearchPosition(const T searchingArray[], T keyToSearch, int lowerBoundary,
+    static int linearSearchPosition(const T searchingArray[], const T keyToSearch, const int sizeOfArray);
+    static int binarySearchPosition(const T searchingArray[], const T keyToSearch, int lowerBoundary,
                                     int upperBoundary);
 };
 
@@ -27,8 +27,8 @@ public:
 // EFFECTS:  If keyToSearch is equal to current value of the array, returns true. If not, transverses the
 // array until the key is found, OR until thelast position is reached. If the former occurs, return false.
 template <typename T>
-bool GenericSearch<T>::linearSearch(const T searchingArray[], T keyToSearch,
-                                                        int sizeOfArray){
+bool GenericSearch<T>::linearSearch(const T searchingArray[], const T keyToSearch,
+                                    const int sizeOfArray){
     int  i = 0;
     bool found = false;
     
@@ -49,8 +49,8 @@ bool GenericSearch<T>::linearSearch(const T searchingArray[], T keyToSearch,
 // the key is smaller, adjusts the search boundaries (move upperBoundary to middle point). Else, adjust
 // the boundary to fit the case (move lowerBoundary to midPoint + 1)
 template <typename T>
-bool GenericSearch<T>::binarySearch(const T searchingArray[], T keyToSearch,
-                                                        int lowerBoundary, int upperBoundary){
+bool GenericSearch<T>::binarySearch(const T searchingArray[], const T keyToSearch,
+                                    int lowerBoundary, int upperBoundary){
     int lowBound = lowerBoundary;
     int upBound  = upperBoundary;
     int midPoint;
@@ -83,8 +83,8 @@ bool GenericSearch<T>::binarySearch(const T searchingArray[], T keyToSearch,
 // the array until the key is found, OR until thelast position is reached. If the former occurs, return
 // -1.
 template <typename T>
-int GenericSearch<T>::linearSearchPosition(const T searchingArray[], T keyToSearch,
-                                                        int sizeOfArray){
+int GenericSearch<T>::linearSearchPosition(const T searchingArray[], const T keyToSearch,
+                                           const int sizeOfArray){
     int  i = 0;
     bool found = false;
     
@@ -96,11 +96,7 @@ int GenericSearch<T>::linearSearchPosition(const T searchingArray[], T keyToSear
     }
     
     
-    if (found) {
-        return --i;
-    }else{
-        return -1;
-    }
+   return found? --i : -1;
 }
 
 
@@ -113,8 +109,8 @@ int GenericSearch<T>::linearSearchPosition(const T searchingArray[], T keyToSear
 // middle point). Else, adjust the boundary to fit the case (move lowerBoundary to midPoint + 1). If no
 // value is found, returns -1.
 template <typename T>
-int GenericSearch<T>::binarySearchPosition(const T searchingArray[], T keyToSearch,
-                                                        int lowerBoundary, int upperBoundary){
+int GenericSearch<T>::binarySearchPosition(const T searchingArray[], const T keyToSearch,
+                                           int lowerBoundary, int upperBoundary){
     int lowBound = lowerBoundary;
     int upBound  = upperBoundary;
     int midPoint = 0; //STUB
@@ -135,11 +131,8 @@ int GenericSearch<T>::binarySearchPosition(const T searchingArray[], T keyToSear
         }
     }
     
-    if (found) {
-        return midPoint;
-    }else{
-        return -1;
-    }
+    return found? midPoint : -1;
+    
 }
 
 #endif /* defined(GenericSearch_GenericSearch_h) */
