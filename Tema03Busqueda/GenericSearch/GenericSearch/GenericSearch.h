@@ -10,7 +10,8 @@
 #define GenericSearch_GenericSearch_h
 
 template <typename T>
-class GenericSearch_GenericSearch_h{
+class GenericSearch{
+public:
     // Proof of existence functions
     static bool linearSearch(const T searchingArray[], T keyToSearch, int sizeOfArray);
     static bool binarySearch(const T searchingArray[], T keyToSearch, int lowerBoundary, int upperBoundary);
@@ -25,13 +26,14 @@ class GenericSearch_GenericSearch_h{
 // MODIFIES: None.
 // EFFECTS:  If keyToSearch is equal to current value of the array, returns true. If not, transverses the
 // array until the key is found, OR until thelast position is reached. If the former occurs, return false.
-static bool GenericSearch_GenericSearch_h::linearSearch(const T searchingArray[], T keyToSearch,
+template <typename T>
+bool GenericSearch<T>::linearSearch(const T searchingArray[], T keyToSearch,
                                                         int sizeOfArray){
     int  i = 0;
     bool found = false;
     
     while (i < sizeOfArray && !found) {
-        if (sizeOfArray[i] == keyToSearch) {
+        if (searchingArray[i] == keyToSearch) {
             found = true;
         }
         i++;
@@ -46,10 +48,12 @@ static bool GenericSearch_GenericSearch_h::linearSearch(const T searchingArray[]
 // EFFECTS:  Compares the keyToSearch in to the midvalue of the array. If they are equal, return true. If
 // the key is smaller, adjusts the search boundaries (move upperBoundary to middle point). Else, adjust
 // the boundary to fit the case (move lowerBoundary to midPoint + 1)
-static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[], T keyToSearch,
+template <typename T>
+bool GenericSearch<T>::binarySearch(const T searchingArray[], T keyToSearch,
                                                         int lowerBoundary, int upperBoundary){
     int lowBound = lowerBoundary;
     int upBound  = upperBoundary;
+    int midPoint;
     bool found   = false;
     
     while (lowBound < upBound && !found){
@@ -78,18 +82,25 @@ static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[]
 // EFFECTS:  If keyToSearch is equal to current value of the array, returns the index. If not, transverses
 // the array until the key is found, OR until thelast position is reached. If the former occurs, return
 // -1.
-static bool GenericSearch_GenericSearch_h::linearSearchPosition(const T searchingArray[], T keyToSearch,
+template <typename T>
+int GenericSearch<T>::linearSearchPosition(const T searchingArray[], T keyToSearch,
                                                         int sizeOfArray){
     int  i = 0;
     bool found = false;
     
     while (i < sizeOfArray && !found) {
-        if (sizeOfArray[i] == keyToSearch) {
+        if (searchingArray[i] == keyToSearch) {
             found = true;
         }
         i++;
     }
-    found? return --i : return -1;
+    
+    
+    if (found) {
+        return --i;
+    }else{
+        return -1;
+    }
 }
 
 
@@ -101,11 +112,12 @@ static bool GenericSearch_GenericSearch_h::linearSearchPosition(const T searchin
 // position of the midvalue. If the key is smaller, adjusts the search boundaries (move upperBoundary to
 // middle point). Else, adjust the boundary to fit the case (move lowerBoundary to midPoint + 1). If no
 // value is found, returns -1.
-static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[], T keyToSearch,
+template <typename T>
+int GenericSearch<T>::binarySearchPosition(const T searchingArray[], T keyToSearch,
                                                         int lowerBoundary, int upperBoundary){
     int lowBound = lowerBoundary;
     int upBound  = upperBoundary;
-    int midPoint;
+    int midPoint = 0; //STUB
     bool found   = false;
     
     while (lowBound < upBound && !found){
@@ -123,5 +135,11 @@ static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[]
         }
     }
     
-    found? return midPoint : return -1;
+    if (found) {
+        return midPoint;
+    }else{
+        return -1;
+    }
 }
+
+#endif /* defined(GenericSearch_GenericSearch_h) */
