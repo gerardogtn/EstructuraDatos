@@ -48,37 +48,80 @@ static bool GenericSearch_GenericSearch_h::linearSearch(const T searchingArray[]
 // the boundary to fit the case (move lowerBoundary to midPoint + 1)
 static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[], T keyToSearch,
                                                         int lowerBoundary, int upperBoundary){
-    int midPoint = (lowerBoundary + upperBoundary) / 2;
+    int lowBound = lowerBoundary;
+    int upBound  = upperBoundary;
     bool found   = false;
     
-    while (lowerBoundary < upperBoundary && !found){
+    while (lowBound < upBound && !found){
+        
+        midPoint = (lowBound + upBound) / 2;
+        
         if (searchingArray[midPoint] == keyToSearch) {
             found = true;
         }
         else if (keyToSearch < searchingArray[midPoint]){
-            upperBoundary = midPoint;
+            upBound  = midPoint;
         }
         else{
-            lowerBoundary = midPoint + 1;
+            lowBound = midPoint + 1;
         }
     }
     
-    return found;
+    return found; 
 }
 
 
 
-
 // Sequentially searchs for a key in an array.
-// REQUIRES:
-// MODIFIES:
-// EFFECTS:
+// REQUIRES: None.
+// MODIFIES: None.
+// EFFECTS:  If keyToSearch is equal to current value of the array, returns the index. If not, transverses
+// the array until the key is found, OR until thelast position is reached. If the former occurs, return
+// false.
+static bool GenericSearch_GenericSearch_h::linearSearchPosition(const T searchingArray[], T keyToSearch,
+                                                        int sizeOfArray){
+    int  i = 0;
+    bool found = false;
+    
+    while (i < sizeOfArray && !found) {
+        if (sizeOfArray[i] == keyToSearch) {
+            found = true;
+        }
+        i++;
+    }
+    
+    return --i;
+}
 
 
 
-
-// Sequentially searchs for a key in an array.
-// REQUIRES:
-// MODIFIES:
-// EFFECTS:
-#endif
+// Performs a binary search on an array until the key is found.
+// REQUIRES: The array is sorted.
+// MODIFIES: None.
+// EFFECTS:  Compares the keyToSearch in to the midvalue of the array. If they are equal, return true. If
+// the key is smaller, adjusts the search boundaries (move upperBoundary to middle point). Else, adjust
+// the boundary to fit the case (move lowerBoundary to midPoint + 1)
+static bool GenericSearch_GenericSearch_h::binarySearch(const T searchingArray[], T keyToSearch,
+                                                        int lowerBoundary, int upperBoundary){
+    int lowBound = lowerBoundary;
+    int upBound  = upperBoundary;
+    int midPoint;
+    bool found   = false;
+    
+    while (lowBound < upBound && !found){
+        
+        midPoint = (lowBound + upBound) / 2;
+        
+        if (searchingArray[midPoint] == keyToSearch) {
+            found = true;
+        }
+        else if (keyToSearch < searchingArray[midPoint]){
+            upBound  = midPoint;
+        }
+        else{
+            lowBound = midPoint + 1;
+        }
+    }
+    
+    found? return midPoint : return -1;
+}
