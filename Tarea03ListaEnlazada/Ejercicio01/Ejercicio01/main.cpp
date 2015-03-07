@@ -43,11 +43,11 @@ LinkedList<int> * generatePrimeNumbers(int n, int lowerBound, int upperBound){
     if(lowerBound == 1) lowerBound++;
     
     if(lowerBound == 2 && primeList->size() < n) {
-        primeList->insertBack(2);
+        primeList->insertFront(2);
         lowerBound++;
     }
     if (lowerBound == 3 && primeList->size() < n){
-        primeList->insertBack(3);
+        primeList->insertFront(3);
         lowerBound++;
     }
     
@@ -59,7 +59,7 @@ LinkedList<int> * generatePrimeNumbers(int n, int lowerBound, int upperBound){
                 }
                 
                 if(c == lowerBound -1){
-                    primeList->insertBack(lowerBound);
+                    primeList->insertFront(lowerBound);
                 }
             }
             
