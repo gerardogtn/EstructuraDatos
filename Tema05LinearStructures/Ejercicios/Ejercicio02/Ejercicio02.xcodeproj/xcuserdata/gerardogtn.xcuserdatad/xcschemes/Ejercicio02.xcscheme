@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4CBD0D11AC09FEF00A985F3"
-               BuildableName = "InvertirCola"
-               BlueprintName = "InvertirCola"
-               ReferencedContainer = "container:InvertirCola.xcodeproj">
+               BlueprintIdentifier = "D4CBD0E91AC0A56D00A985F3"
+               BuildableName = "Ejercicio02"
+               BlueprintName = "Ejercicio02"
+               ReferencedContainer = "container:Ejercicio02.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4CBD0D11AC09FEF00A985F3"
-            BuildableName = "InvertirCola"
-            BlueprintName = "InvertirCola"
-            ReferencedContainer = "container:InvertirCola.xcodeproj">
+            BlueprintIdentifier = "D4CBD0E91AC0A56D00A985F3"
+            BuildableName = "Ejercicio02"
+            BlueprintName = "Ejercicio02"
+            ReferencedContainer = "container:Ejercicio02.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,10 +52,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4CBD0D11AC09FEF00A985F3"
-            BuildableName = "InvertirCola"
-            BlueprintName = "InvertirCola"
-            ReferencedContainer = "container:InvertirCola.xcodeproj">
+            BlueprintIdentifier = "D4CBD0E91AC0A56D00A985F3"
+            BuildableName = "Ejercicio02"
+            BlueprintName = "Ejercicio02"
+            ReferencedContainer = "container:Ejercicio02.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,10 +71,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4CBD0D11AC09FEF00A985F3"
-            BuildableName = "InvertirCola"
-            BlueprintName = "InvertirCola"
-            ReferencedContainer = "container:InvertirCola.xcodeproj">
+            BlueprintIdentifier = "D4CBD0E91AC0A56D00A985F3"
+            BuildableName = "Ejercicio02"
+            BlueprintName = "Ejercicio02"
+            ReferencedContainer = "container:Ejercicio02.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
