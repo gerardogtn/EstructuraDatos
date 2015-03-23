@@ -81,7 +81,7 @@ template <class T>
 std::ostream & operator <<(std::ostream & os, Stack<T> & stack)
 {
     for (auto i : stack) {
-        os << i << std::endl;
+        os << i << " ";
     }
     
     return os;
