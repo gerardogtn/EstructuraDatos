@@ -14,7 +14,6 @@
 using namespace std;
 using namespace vcn;
 
-
 void handleInput(std::string);
 LinkedList<int> * unionSet(LinkedList<int> * a, LinkedList<int> * b);
 LinkedList<int> * interSet(LinkedList<int> * a, LinkedList<int> * b);
@@ -24,17 +23,34 @@ void verifyBackwards(Stack<int> * bracketStack, string equationToCheck, int leng
 void verifyAbstract(Stack<int> *bracketStack, string equationToCheck, int firstComp, int secondComp,
                     int updateVar(int), string firstStringComparison, string SecondStringComparison);
 bool  hasRepeatedElements(LinkedList<int> * input);
+int stringToIntWord(string input);
+bool getOperations(string input, Stack<int> * bracketStack, Queue<string> * queueSet);
 
 int main(int argc, const char * argv[]) {
     std::string input;
     std::getline(cin, input);
     
     Queue<std::string> * queueSet = new Queue<std::string>();
-    
     Stack<int> * bracketStack = new Stack<int>();
+    
+    if (getOperations(input, bracketStack, queueSet)) {
+        unionSet(getSet(queueSet->dequeue()), getSet(queueSet->dequeue()));
+    }
+    else{
+        interSet(getSet(queueSet->dequeue()), getSet(queueSet->dequeue()));
+    }
+    
+    return 0;
+}
+
+
+
+bool getOperations(string input, Stack<int> * bracketStack, Queue<string> * queueSet){
     string word = "";
     string letter;
     
+    //True for union. False for intersection
+    bool whatOperation = true;
     for (int i = 0; input.size(); i++) {
         
         letter = input[i];
@@ -50,13 +66,41 @@ int main(int argc, const char * argv[]) {
             queueSet->enqueue(word);
         }
         
+        if(letter.compare("*")){
+            whatOperation = true;
+        }
+
     }
-    
-    
-    
-    return 0;
+    return whatOperation;
 }
 
+
+int stringToIntWord(string input){
+    return 1; //stub
+}
+
+
+
+LinkedList<int> * stringToSet(string someSetString){
+    LinkedList<int> * output = new LinkedList<int>();
+    string letter;
+    string word = "";
+    
+    
+    for(int i = 0; i < someSetString.length(); i++){
+        letter = someSetString[i];
+        if (letter.compare(",") == 0){
+            output->insertBack(stringToIntWord(word));
+            word = "";
+        }else if(letter.compare(" ")){
+            
+        }else{
+            word = word + letter;
+        }
+        
+    }
+    return output;
+}
 
 
 // REQUIRES: The two sets do not have repeated elements.
