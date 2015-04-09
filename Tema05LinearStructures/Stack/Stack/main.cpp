@@ -9,6 +9,8 @@
 #include <iostream>
 #include "Stack.h"
 
+using namespace vcn;
+
 int main(int argc, const char * argv[]) {
     
     // Define stack
