@@ -62,6 +62,7 @@ namespace vcn {
         void printLongestPath() const;
         int  getLevel(BNode<T> * node) const;
         int  getDepth(BNode<T> * node) const;
+        int getLongestSize() const;
         
      };
     
@@ -248,29 +249,32 @@ namespace vcn {
     // REQUIRES:
     // EFFECTS:
     //
+    // TODO: METHOD
     template <class T>
     bool BinaryTree<T>::isBrother(BNode<T> * node)    const{
         
-        
+        return false; //STUB
     }
     
     // MODIFIES:
     // REQUIRES:
     // EFFECTS:
     //
+    // TODO: METHOD
     template <class T>
     bool BinaryTree<T>::isAncestor(BNode<T> * node)   const{
         
-        
+        return false; //STUB
     }
     
     // MODIFIES:
     // REQUIRES:
     // EFFECTS:
     //
+    // TODO: METHOD
     template <class T>
     bool BinaryTree<T>::isDescendant(BNode<T> * node) const{
-        
+        return false; //STUB
         
     }
     
@@ -278,6 +282,7 @@ namespace vcn {
     // REQUIRES:
     // EFFECTS:
     //
+    // TODO: METHOD
     template <class T>
     void BinaryTree<T>::printCousins(BNode<T> * node)     const{
         
@@ -288,6 +293,7 @@ namespace vcn {
     // REQUIRES:
     // EFFECTS:
     //
+    // TODO: METHOD
     template <class T>
     void BinaryTree<T>::printcousins(int level)           const{
         
@@ -306,6 +312,7 @@ namespace vcn {
     // REQUIRES:
     // EFFECTS:
     //
+    // TODO: METHOD
     template <class T>
     void BinaryTree<T>::printDescendants(BNode<T> * node) const{
         
@@ -316,6 +323,7 @@ namespace vcn {
     // REQUIRES:
     // EFFECTS:
     //
+    // TODO: METHOD
     template <class T>
     void BinaryTree<T>::printLongestPath() const{
         
@@ -326,10 +334,11 @@ namespace vcn {
     // REQUIRES:
     // EFFECTS:
     //
+    // TODO: METHOD
     template <class T>
     int  BinaryTree<T>::getLevel(BNode<T> * node) const{
         
-        
+        return -1 // STUB
     }
     
     // MODIFIES: None
@@ -368,6 +377,16 @@ namespace vcn {
         getDepth(node, 0, root)
     }
     
+    
+    // MODIFIES:
+    // REQUIRES:
+    // EFFECTS:
+    //
+    // TODO: METHOD.
+    template <class T>
+    int  BinaryTree<T>::getLongestSize() const{
+        return -1 // STUB
+    }
     
 }
 
