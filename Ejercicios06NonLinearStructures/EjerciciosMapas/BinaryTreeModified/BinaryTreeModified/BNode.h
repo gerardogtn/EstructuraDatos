@@ -15,7 +15,7 @@ namespace vcn {
     
     template <class T>
     class BNode {
-        
+    private:
         BNode<T> * parent = nullptr;
         BNode<T> * left = nullptr;
         BNode<T> * right = nullptr;

@@ -17,6 +17,9 @@ namespace vcn {
     class BinaryTree {
     private:
         BNode<T> * root = nullptr;
+        bool isBrother(BNode<T> * node,    bool output) const;
+        bool isAncestor(BNode<T> * node,   bool output) const;
+        bool isDescendant(BNode<T> * node, bool output) const;
         int  getDepth(BNode<T> * node, int currentDepth, BNode<T> * root) const
         
     public:
@@ -245,15 +248,27 @@ namespace vcn {
     // ************************************************************
     
     
+    // MODIFIES: None
+    // REQUIRES: None
+    // EFFECTS:  Returns true if the node is a brother of this node. False otherwise.
+    //
+    template <class T>
+    bool BinaryTree<T>::isBrother(BNode<T> * node)    const{
+        
+        return isBrother(node, false)
+    }
+    
     // MODIFIES:
-    // REQUIRES:
+    // REQUIRES: On first iteration, output is false.
     // EFFECTS:
     //
     // TODO: METHOD
     template <class T>
-    bool BinaryTree<T>::isBrother(BNode<T> * node)    const{
+    bool BinaryTree<T>::isBrother(BNode<T> * node, bool output)    const{
+        bool output = false; 
         
-        return false; //STUB
+        
+        return output; //STUB
     }
     
     // MODIFIES:

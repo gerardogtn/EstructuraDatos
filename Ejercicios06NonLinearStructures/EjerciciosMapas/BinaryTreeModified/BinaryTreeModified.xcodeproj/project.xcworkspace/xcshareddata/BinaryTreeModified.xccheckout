@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>BD191358-EB7B-4A41-934C-F94A95FB4358</string>
 	<key>IDESourceControlProjectName</key>
-	<string>BinaryTreeModified</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A6CDB896959DEEEA6355838A1F5F8F24137ABCE6</key>
 		<string>https://github.com/gerardogtn/EstructuraDatos.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Ejercicios06NonLinearStructures/EjerciciosMapas/BinaryTreeModified/BinaryTreeModified.xcodeproj</string>
+	<string>Ejercicios06NonLinearStructures/EjerciciosMapas/BinaryTreeModified/BinaryTreeModified.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A6CDB896959DEEEA6355838A1F5F8F24137ABCE6</key>
