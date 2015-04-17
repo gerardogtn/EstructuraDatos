@@ -7,9 +7,9 @@
 //
 
 #include <iostream>
-#include <list>
 #include <vector>
 #include <iomanip>
+#include <math.h>
 
 using  namespace std;
 
@@ -29,17 +29,16 @@ int main(int argc, const char * argv[]) {
     }
     
     for (int i = 0; i < 100; i++){
-        cout << setw(3) << elementFrequency[i].first << ": " << elementFrequency[i].second << endl;
+        cout << setw(3) << elementFrequency[i].first << ": " << setw(2) << elementFrequency[i].second << endl;
     }
     
     cout << endl;
-    
     
     sort(elementFrequency.begin(), elementFrequency.end(), [](pair<int, int> a, pair<int, int> b)
          {return a.second > b.second;});
     
     for (int i = 0; i < 100; i++){
-        cout << setw(3) << elementFrequency[i].first << ": " << elementFrequency[i].second << endl;
+        cout << setw(3) << elementFrequency[i].first << ": " << setw(2) << elementFrequency[i].second << endl;
     }
     
 }
