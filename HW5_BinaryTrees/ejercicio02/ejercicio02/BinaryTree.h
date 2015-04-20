@@ -17,10 +17,6 @@ namespace vcn {
     class BinaryTree {
     private:
         BNode<T> * root = nullptr;
-        bool isBrother(BNode<T> * node,    bool output) const;
-        bool isAncestor(BNode<T> * node,   bool output) const;
-        bool isDescendant(BNode<T> * node, bool output) const;
-        int  getDepth(BNode<T> * node, int currentDepth, BNode<T> * root) const
         
     public:
         BinaryTree() {}
@@ -46,26 +42,21 @@ namespace vcn {
         void postOrder() const;
         void postOrder(BNode<T> * node) const;
         
+        bool operator==(const BinaryTree<T> * node) const;
+        
         void isLeaf() const;
         void isLeaf(BNode<T> * node) const;
         
         void ancestors(BNode<T> * node) const;
         
+        int sumOfDescendants() const;
+        int sumOfDescendants(BNode<T> * node) const;
         
-        // NEW METHODS //
-        bool isBrother(BNode<T> * node)    const;
-        bool isAncestor(BNode<T> * node)   const;
-        bool isDescendant(BNode<T> * node) const;
+        void makeSumOfDescendants();
+        void makeSumOfDescendants(BNode<T> * node);
         
-        void printCousins(BNode<T> * node)     const;
-        void printcousins(int level)           const;
-        void printAncestors(BNode<T> * node)   const;
-        void printDescendants(BNode<T> * node) const;
-        
-        void printLongestPath() const;
-        int  getLevel(BNode<T> * node) const;
-        int  getDepth(BNode<T> * node) const;
-        int getLongestSize() const;
+        void reflect();
+        void reflect(BNode<T> * node);
         
      };
     
@@ -215,6 +206,13 @@ namespace vcn {
     }
     
     template <class T>
+    bool BinaryTree<T>::operator==(const BinaryTree<T> * other) const{
+        bool output = root == other->root;
+        return output; //STUB
+    }
+    
+    
+    template <class T>
     void BinaryTree<T>::isLeaf() const
     {
         isLeaf(root);
@@ -242,166 +240,79 @@ namespace vcn {
             ancestors(node->getParent());
         }
     }
- 
-    // ************************************************************
-    // *               MY METHODS START HERE:                     *
-    // ************************************************************
     
     
-    // MODIFIES: None
-    // REQUIRES: None
-    // EFFECTS:  Returns true if the node is a brother of this node. False otherwise.
+    // REQUIRES: OPERATOR + IS OVERLOADED PROPERLY
+    // MODIFIES: NONE
+    //  EFFECTS: RETURNS THE SUM OF ALL THE DESCENDANTS OF A BINARY TREE.
     //
     template <class T>
-    bool BinaryTree<T>::isBrother(BNode<T> * node)    const{
-        
-        return isBrother(node, false)
+    int BinaryTree<T>::sumOfDescendants() const{
+        return sumOfDescendants(root);
     }
     
-    // MODIFIES:
-    // REQUIRES: On first iteration, output is false.
-    // EFFECTS:
+    // REQUIRES: OPERATOR + IS OVERLOADED PROPERLY.
+    // MODIFIES: NONE
+    //  EFFECTS: RETURNS THE SUM OF ALL THE DESCENDANTS OF A GIVEN NODE.
     //
-    // TODO: METHOD
     template <class T>
-    bool BinaryTree<T>::isBrother(BNode<T> * node, bool output)    const{
-        bool output = false; 
+    int BinaryTree<T>::sumOfDescendants(BNode<T> * node)const{
         
-        
-        return output; //STUB
+        int output = 0;
+        if (node){
+            output = output + node->getInfo();
+            output = output + sumOfDescendants(node->getLeft());
+            output = output + sumOfDescendants(node->getRight());
+        }
+        return output;
     }
     
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
-    template <class T>
-    bool BinaryTree<T>::isAncestor(BNode<T> * node)   const{
-        
-        return false; //STUB
-    }
     
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
-    template <class T>
-    bool BinaryTree<T>::isDescendant(BNode<T> * node) const{
-        return false; //STUB
-        
-    }
-    
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
-    template <class T>
-    void BinaryTree<T>::printCousins(BNode<T> * node)     const{
-        
-        
-    }
-    
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
-    template <class T>
-    void BinaryTree<T>::printcousins(int level)           const{
-        
-        
-    }
-    
-    // MODIFIES: None.
     // REQUIRES: None.
-    // EFFECTS: Prints the ancestors of a node.
+    // MODIFIES: this.
+    //  EFFECTS: Makes each node equal to the sum of its descendants.
     template <class T>
-    void BinaryTree<T>::printAncestors(BNode<T> * node)   const{
-        ancestors(node);
+    void BinaryTree<T>::makeSumOfDescendants(){
+        makeSumOfDescendants(root);
     }
     
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
+    // REQUIRES: None.
+    // MODIFIES: this.
+    //  EFFECTS: Makes each node equal to the sum of its descendants.
     template <class T>
-    void BinaryTree<T>::printDescendants(BNode<T> * node) const{
+    void BinaryTree<T>::makeSumOfDescendants(BNode<T> * node){
         
-        
-    }
-    
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
-    template <class T>
-    void BinaryTree<T>::printLongestPath() const{
-        
-        
-    }
-    
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
-    template <class T>
-    int  BinaryTree<T>::getLevel(BNode<T> * node) const{
-        
-        return -1 // STUB
-    }
-    
-    // MODIFIES: None
-    // REQUIRES: - On first iteration root is the root of the tree.
-    // EFFECTS:  Returns the depth of the tree.
-    //           If the node is null OR doesn't belong to the tree, returns -1.
-    // Gets the depth of a node in  a tree.
-    
-    // TODO: OPTIMIZE SUCH THAT THERE ISN'T A COMPARISON TO ROOT ON EACH ITERATION.
-    template <class T>
-    int  BinaryTree<T>::getDepth(BNode<T> * node, int currentDepth, BNode<T> * root) const{
-        
-        if (node) {
-            if(node = root){
-                return currentDepth
-            } else if (root->getRight == node || root->getLeft == node){
-                return ++currentDepth;
-            } else if (node->getRight == nullptr && node->getLeft == nullptr){
-                return -1;
-            }else{
-                return getDepth(node, ++currentDepth, root->getRight);
-                return getDepth(node, ++currentDepth, root->getLeft);
-            }
-        }else{
-            return -1;
+        if (node){
+            node->setInfo(sumOfDescendants(node));
+            makeSumOfDescendants(node->getLeft());
+            makeSumOfDescendants(node->getRight());
         }
     }
     
-    // MODIFIES: None.
+    
     // REQUIRES: None.
-    // EFFECTS:  Returns the depth of the tree.
-    //           If the node is null OR doesn't belong to the tree, returns -1.
-    // Gets the depth of a node in  a tree.
+    // MODIFIES: this.
+    //  EFFECTS: Reflects this tree.
     template <class T>
-    int  BinaryTree<T>::getDepth(BNode<T> * node) const{
-        getDepth(node, 0, root)
+    void BinaryTree<T>::reflect(){
+        reflect(root);
     }
     
-    
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD.
+    // REQUIRES: None.
+    // MODIFIES: this.
+    //  EFFECTS: Reflects this tree.
     template <class T>
-    int  BinaryTree<T>::getLongestSize() const{
-        return -1 // STUB
+    void BinaryTree<T>::reflect(BNode<T> * node){
+        if (node){
+            BNode<T> * buffer = node->getLeft();
+            node->setLeft(node->getRight());
+            node->setRight(buffer);
+            
+            reflect(node->getLeft());
+            reflect(node->getRight());
+        }
     }
+    
     
 }
 

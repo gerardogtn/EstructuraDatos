@@ -46,6 +46,8 @@ namespace vcn {
         
         template <typename Tn>
         friend std::ostream & operator << (std::ostream & os, const BNode<Tn>  & node);
+        
+        bool operator ==(const BNode<T> & other) const;
     };
     
     template <class T>
@@ -73,6 +75,30 @@ namespace vcn {
         return os;
     }
     
+    
+    template <class T>
+    bool BNode<T>::operator ==(const BNode<T> & other) const{
+        bool output;
+        
+        output = info == other.info; 
+        
+        /*
+        if ((this->getLeft() == nullptr && other-getLeft() != nullptr) || (this->getLeft() != nullptr && other-getLeft() == nullptr)){
+            output = false;
+        } else if ((this->getRight() == nullptr && other-getRight() != nullptr) || (this->getRight() != nullptr && other-getRight() == nullptr)){
+            output = false;
+        } else if (this->getLeft() == nullptr && other->getLeft() == nullptr && this->getRight() == nullptr
+                  && other->getRight == nullptr){
+            output = true;
+        } else{
+            output = this->parent->getInfo() == other->parent->getInfo();
+            output = output && this->left->getInfo() == other->left->getInfo();
+            output = output && this->right->getInfo() == other->right->getInfo();
+        }
+        */
+        
+        return output;
+    }
 }
 
 
