@@ -18,3 +18,8 @@ DerivedData
 .idea/
 # Pods - for those of you who use CocoaPods
 Pods
+
+/Ejercicios06NonLinearStructures/*.pdf
+/HW5_BinaryTrees/*.pdf
+/Tarea01Recursividad/*.pdf
+Intro.pdf
