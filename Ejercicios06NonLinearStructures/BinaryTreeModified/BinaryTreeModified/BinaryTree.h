@@ -80,6 +80,9 @@ namespace vcn {
         bool equals(const BNode<T> *nodeA,   const BNode<T> *nodeB)   const;
         bool operator==(const BinaryTree<T> & a) const;
         
+        BinaryTree<T> * copy(const BinaryTree<T> * a);
+        BNode<T> * copy(const BNode<T> * node);
+        
         
      };
     
@@ -522,6 +525,35 @@ namespace vcn {
     bool BinaryTree<T>::operator == (const BinaryTree<T> & b) const{
         return equals(this, &b);
     }
+    
+    // REQUIRES: None.
+    // MODIFIES: None
+    //  EFFECTS: Copies a binary tree. 
+    template <class T>
+    BinaryTree<T> * BinaryTree<T>::copy(const BinaryTree<T> * a){
+        BinaryTree<T> * output = new BinaryTree<T>();
+        BNode<T> * node = new BNode<T>();
+        node = copy(a->getRoot());
+        output->insert(nullptr, node);
+        return output;
+    }
+    
+    // REQUIRES: None.
+    // MODIFIES: None
+    //  EFFECTS: Copies the root node of a tree to output.
+    // Copies the root of a tree.
+    template <class T>
+    BNode<T> * BinaryTree<T>::copy(const BNode<T> * node){
+        if (node){
+            BNode<T> * output = new BNode<T>();
+            output->setInfo(node->getInfo());
+            output->setRight(copy(node->getRight()));
+            output->setLeft(copy(node->getLeft()));
+            return output;
+        }
+        return nullptr; 
+    }
+
     
 }
 
