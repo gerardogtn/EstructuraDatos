@@ -76,6 +76,10 @@ namespace vcn {
         void reflect();
         void reflect(BNode<T> * node);
         
+        bool equals(const BinaryTree<T> * a, const BinaryTree<T> * b) const;
+        bool equals(const BNode<T> *nodeA,   const BNode<T> *nodeB)   const;
+        bool operator==(const BinaryTree<T> & a) const;
+        
         
      };
     
@@ -485,7 +489,39 @@ namespace vcn {
     }
     
     
-   
+    // REQUIRES: None.
+    // MODIFIES: None
+    //  EFFECTS: Produces true if the info in every node of a matches the info in every node of b.
+    template <class T>
+    bool BinaryTree<T>::equals(const BinaryTree<T> * a, const BinaryTree<T> * b) const{
+        return equals( a->getRoot(), b->getRoot());
+    }
+    
+    
+    // REQUIRES: None.
+    // MODIFIES: None
+    //  EFFECTS: Produces true if the info in every node of a matches the info in every node of b.
+    template <class T>
+    bool BinaryTree<T>::equals(const BNode<T> * nodeA, const BNode<T> * nodeB) const{
+        bool output = false;
+        if (nodeA && nodeB){
+            output = (*nodeA == *nodeB);
+            output = output && equals(nodeA->getLeft(),  nodeB->getLeft());
+            output = output && equals(nodeA->getRight(), nodeB->getRight());
+        } else if(!nodeA && !nodeB){
+            output = true; 
+        }
+        return output;
+    }
+    
+    
+    // REQUIRES: None.
+    // MODIFIES: None
+    //  EFFECTS: Produces true if the info in every node of a matches the info in every node of b.
+    template <class T>
+    bool BinaryTree<T>::operator == (const BinaryTree<T> & b) const{
+        return equals(this, &b);
+    }
     
 }
 
