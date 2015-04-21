@@ -80,8 +80,10 @@ namespace vcn {
         bool equals(const BNode<T> *nodeA,   const BNode<T> *nodeB)   const;
         bool operator==(const BinaryTree<T> & a) const;
         
-        BinaryTree<T> * copy(const BinaryTree<T> * a);
+        BinaryTree<T> * copy();
         BNode<T> * copy(const BNode<T> * node);
+        
+        bool isSymmetric();
         
         
      };
@@ -528,12 +530,12 @@ namespace vcn {
     
     // REQUIRES: None.
     // MODIFIES: None
-    //  EFFECTS: Copies a binary tree. 
+    //  EFFECTS: Copies a binary tree.
     template <class T>
-    BinaryTree<T> * BinaryTree<T>::copy(const BinaryTree<T> * a){
+    BinaryTree<T> * BinaryTree<T>::copy(){
         BinaryTree<T> * output = new BinaryTree<T>();
         BNode<T> * node = new BNode<T>();
-        node = copy(a->getRoot());
+        node = copy(this->getRoot());
         output->insert(nullptr, node);
         return output;
     }
@@ -554,6 +556,21 @@ namespace vcn {
         return nullptr; 
     }
 
+    
+    
+    // REQUIRES: None.
+    // MODIFIES: None
+    //  EFFECTS: Produces true if the info in every node of a matches the info in every node of b.
+    
+    
+    template <class T>
+    bool BinaryTree<T>::isSymmetric(){
+        BinaryTree<T> * reflection = this->copy();
+        reflection->reflect();
+        bool output = (*this == *reflection);
+        delete reflection;
+        return output;
+    }
     
 }
 
