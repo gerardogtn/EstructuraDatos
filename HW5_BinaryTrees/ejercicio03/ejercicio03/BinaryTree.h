@@ -560,9 +560,7 @@ namespace vcn {
     
     // REQUIRES: None.
     // MODIFIES: None
-    //  EFFECTS: Produces true if the info in every node of a matches the info in every node of b.
-    
-    
+    //  EFFECTS: Produces true if this is symmetric. False otherwise. 
     template <class T>
     bool BinaryTree<T>::isSymmetric(){
         BinaryTree<T> * reflection = this->copy();
