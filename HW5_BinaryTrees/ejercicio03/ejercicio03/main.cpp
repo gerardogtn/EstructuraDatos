@@ -35,14 +35,25 @@ int main(int argc, const char * argv[]) {
     
     BNode<int> * ONE = new BNode<int>(1);
     numeros3->insert(nullptr, ONE);
-    numeros3->insert(ONE, 2);
-    numeros3->insert(ONE, 2);
+    BNode<int> * TWO = new BNode<int>(2);
+    BNode<int> * two = new BNode<int>(2);
+    
+    numeros3->insert(ONE, TWO);
+    numeros3->insert(ONE, two);
     
     numeros3->preOrder();
     std::cout << std::endl;
     std::cout << (numeros3->isSymmetric()? "Symmetric predicate works" : "Symmetric predicate doesn't work") << std:: endl;
     
     
+    numeros3->insert(two, 3);
+    numeros3->insert(two, 4);
+    numeros3->insert(TWO, 4);
+    numeros3->insert(TWO, 3);
+    
+    numeros3->preOrder();
+    std::cout << std::endl;
+    std::cout << (numeros3->isSymmetric()? "Symmetric predicate works" : "Symmetric predicate doesn't work") << std:: endl;
     
     delete numeros;
     delete numeros3;
