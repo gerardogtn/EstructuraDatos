@@ -11,18 +11,11 @@
 using namespace vcn; 
 
 int main(int argc, const char * argv[]) {
-    BinaryTree<int> * numeros = new BinaryTree<int>();
+    BinaryTree<int> * numeros  = new BinaryTree<int>();
+    BinaryTree<int> * numeros3 = new BinaryTree<int>();
     
     BNode<int> * uno = new BNode<int>(1);
     numeros->insert(nullptr, uno);
-    
-    BNode<int> * otroUno = new BNode<int>(1);
-    
-    std::cout << (uno == otroUno ? "Nodes are equal": "Nodes are NOT equal") << std::endl;
-    std::cout << "Nodo uno: " << uno->getInfo() << " " << uno->getLeft() /*<< " " << uno->getRight()->getInfo() */<< std::endl;
-    std::cout << "Nodo dos: " << otroUno->getInfo() << " " << otroUno->getLeft() /*<< " " << otroUno->getRight()->getInfo() */<< std::endl;
-    std::cout << (uno->getInfo() == otroUno->getInfo() ? "Nodes should be equal": "Nodes should NOT be equal") << std::endl; 
-    
     
     BNode<int> * dos = new BNode<int>(2);
     numeros->insert(uno, dos);
@@ -35,12 +28,22 @@ int main(int argc, const char * argv[]) {
     BNode<int> * cuatro = new BNode<int>(4);
     numeros->insert(dos, cuatro);
     
-    numeros->inOrder();
     
+    numeros->preOrder();
     std::cout << std::endl;
+    std::cout << (numeros->isSymmetric()? "Symmetric predicate doesn't work" : "Symmetric predicate works") << std:: endl;
     
-    numeros->reflect();
-    numeros->inOrder();
+    BNode<int> * ONE = new BNode<int>(1);
+    numeros3->insert(nullptr, ONE);
+    numeros3->insert(ONE, 2);
+    numeros3->insert(ONE, 2);
+    
+    numeros3->preOrder();
+    std::cout << std::endl;
+    std::cout << (numeros3->isSymmetric()? "Symmetric predicate works" : "Symmetric predicate doesn't work") << std:: endl;
+    
+    
     
     delete numeros;
+    delete numeros3;
 }

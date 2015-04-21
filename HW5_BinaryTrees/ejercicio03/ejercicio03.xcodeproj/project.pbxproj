@@ -23,10 +23,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D40D27621AE5CFE8006F2A34 /* BNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNode.h; sourceTree = "<group>"; };
+		D40D27631AE5CFE9006F2A34 /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		D46A83791AE32D7600AE4A41 /* ejercicio03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ejercicio03; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46A837C1AE32D7600AE4A41 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D46A838F1AE32DEE00AE4A41 /* BNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BNode.h; path = ../../ejercicio02/ejercicio02/BNode.h; sourceTree = "<group>"; };
-		D46A83901AE32DEE00AE4A41 /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BinaryTree.h; path = ../../ejercicio02/ejercicio02/BinaryTree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				D46A837C1AE32D7600AE4A41 /* main.cpp */,
-				D46A838F1AE32DEE00AE4A41 /* BNode.h */,
-				D46A83901AE32DEE00AE4A41 /* BinaryTree.h */,
+				D40D27621AE5CFE8006F2A34 /* BNode.h */,
+				D40D27631AE5CFE9006F2A34 /* BinaryTree.h */,
 			);
 			path = ejercicio03;
 			sourceTree = "<group>";
