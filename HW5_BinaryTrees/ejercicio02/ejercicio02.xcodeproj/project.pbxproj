@@ -23,10 +23,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D40D27641AE5D51A006F2A34 /* BNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNode.h; sourceTree = "<group>"; };
+		D40D27651AE5D51A006F2A34 /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 		D44B05CB1AE324C30042AD6E /* ejercicio02 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ejercicio02; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44B05CE1AE324C30042AD6E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D44B05D51AE324E70042AD6E /* BNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNode.h; sourceTree = "<group>"; };
-		D44B05D61AE324E70042AD6E /* BinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryTree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +59,9 @@
 		D44B05CD1AE324C30042AD6E /* ejercicio02 */ = {
 			isa = PBXGroup;
 			children = (
-				D44B05D51AE324E70042AD6E /* BNode.h */,
-				D44B05D61AE324E70042AD6E /* BinaryTree.h */,
 				D44B05CE1AE324C30042AD6E /* main.cpp */,
+				D40D27641AE5D51A006F2A34 /* BNode.h */,
+				D40D27651AE5D51A006F2A34 /* BinaryTree.h */,
 			);
 			path = ejercicio02;
 			sourceTree = "<group>";
