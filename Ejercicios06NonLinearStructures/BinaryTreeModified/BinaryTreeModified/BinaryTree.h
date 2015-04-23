@@ -273,11 +273,7 @@ namespace vcn {
     // 
     template <class T>
     bool BinaryTree<T>::isBrother(const BNode<T> * nodeA, const BNode<T> * nodeB) const{
-        bool output;
-        output = nodeA->getParent() == nodeB->getParent();
-        output = output && ((nodeA->getParent()->getRight() == nodeB) ||(nodeA->getParent()->getLeft() == nodeB));
-        output = output && ((nodeB->getParent()->getRight() == nodeA) ||(nodeB->getParent()->getLeft() == nodeA));
-        return output;
+        return nodeA->isBrother(nodeB);
     }
     
    

@@ -47,7 +47,9 @@ namespace vcn {
         template <typename Tn>
         friend std::ostream & operator << (std::ostream & os, const BNode<Tn>  & node);
         
+        // New methods.
         bool operator == (const BNode<T> & a) const;
+        bool isBrother(const BNode<T> * nodeA) const;
     };
     
     template <class T>
@@ -76,6 +78,13 @@ namespace vcn {
     }
     
     
+    
+    // ************************************************************
+    // *               MY METHODS START HERE:                     *
+    // ************************************************************
+    
+    
+    
     // REQUIERS: None.
     // MODIFIES: None.
     //  EFFECTS: Returns true if the info of this is equal to the info of a.
@@ -85,6 +94,20 @@ namespace vcn {
         return (this->getInfo() == a.getInfo());
     }
     
+    
+    // MODIFIES: None
+    // REQUIRES: None
+    // EFFECTS:  Returns true if both nodes' parents are equal. And nodeA is a direct descendant of this'
+    // parent. And this is a direct descendant of nodeA's parent. False otherwise.
+    //
+    template <class T>
+    bool BNode<T>::isBrother(const BNode<T> * nodeA) const{
+        bool output;
+        output = nodeA->getParent() == this->getParent();
+        output = output && ((nodeA->getParent()->getRight() == this) ||(nodeA->getParent()->getLeft() == this));
+        output = output && ((this->getParent()->getRight() == nodeA) ||(this->getParent()->getLeft() == nodeA));
+        return output;
+    }
 }
 
 
