@@ -17,7 +17,6 @@ namespace vcn {
     class BinaryTree {
     private:
         BNode<T> * root = nullptr;
-        bool isBrother(BNode<T> * node,    bool output) const;
         bool isAncestor(BNode<T> * node,   bool output) const;
         bool isDescendant(BNode<T> * node, bool output) const;
         int  getDepth(BNode<T> * node, int currentDepth, BNode<T> * root) const;
@@ -53,9 +52,9 @@ namespace vcn {
         
         
         // NEW METHODS //
-        bool isBrother(BNode<T> * node)    const;
-        bool isAncestor(BNode<T> * node)   const;
-        bool isDescendant(BNode<T> * node) const;
+        bool isBrother(const BNode<T> * nodeA, const BNode<T> * nodeB)    const;
+        bool isAncestor(const BNode<T> * nodeA, const BNode<T> * nodeB)   const;
+        bool isDescendant(const BNode<T> * nodeA, const BNode<T> * nodeB) const;
         
         void printCousins(BNode<T> * node)     const;
         void printcousins(int level)           const;
@@ -76,7 +75,7 @@ namespace vcn {
         void reflect();
         void reflect(BNode<T> * node);
         
-        bool equals(const BinaryTree<T> * a, const BinaryTree<T> * b) const;
+        bool equals(const BinaryTree<T> * b) const;
         bool equals(const BNode<T> *nodeA,   const BNode<T> *nodeB)   const;
         bool operator==(const BinaryTree<T> & a) const;
         
@@ -269,25 +268,19 @@ namespace vcn {
     
     // MODIFIES: None
     // REQUIRES: None
-    // EFFECTS:  Returns true if the node is a brother of this node. False otherwise.
-    //
+    // EFFECTS:  Returns true if both nodes parents are equal. And nodeA is a direct descendant of nodeB's
+    // parent. And nodeB is a direct descendant of nodeA's parent. False otherwise.
+    // 
     template <class T>
-    bool BinaryTree<T>::isBrother(BNode<T> * node)    const{
-        
-        return isBrother(node, false);
+    bool BinaryTree<T>::isBrother(const BNode<T> * nodeA, const BNode<T> * nodeB) const{
+        bool output;
+        output = nodeA->getParent() == nodeB->getParent();
+        output = output && ((nodeA->getParent()->getRight() == nodeB) ||(nodeA->getParent()->getLeft() == nodeB));
+        output = output && ((nodeB->getParent()->getRight() == nodeA) ||(nodeB->getParent()->getLeft() == nodeA));
+        return output;
     }
     
-    // MODIFIES:
-    // REQUIRES: On first iteration, output is false.
-    // EFFECTS:
-    //
-    // TODO: METHOD
-    template <class T>
-    bool BinaryTree<T>::isBrother(BNode<T> * node, bool output)    const{
-        
-        
-        return output; //STUB
-    }
+   
     
     // MODIFIES:
     // REQUIRES:
@@ -295,7 +288,7 @@ namespace vcn {
     //
     // TODO: METHOD
     template <class T>
-    bool BinaryTree<T>::isAncestor(BNode<T> * node)   const{
+    bool BinaryTree<T>::isAncestor(const BNode<T> * nodeA, const BNode<T> * nodeB)   const{
         
         return false; //STUB
     }
@@ -306,7 +299,7 @@ namespace vcn {
     //
     // TODO: METHOD
     template <class T>
-    bool BinaryTree<T>::isDescendant(BNode<T> * node) const{
+    bool BinaryTree<T>::isDescendant(const BNode<T> * nodeA, const BNode<T> * nodeB) const{
         return false; //STUB
         
     }
@@ -422,8 +415,8 @@ namespace vcn {
     }
     
     
-    // REQUIRES: OPERATOR + IS OVERLOADED PROPERLY
-    // MODIFIES: NONE
+    // REQUIRES: None.
+    // MODIFIES: None.
     //  EFFECTS: RETURNS THE SUM OF ALL THE DESCENDANTS OF A BINARY TREE.
     //
     template <class T>
@@ -431,8 +424,8 @@ namespace vcn {
         return sumOfDescendants(root);
     }
     
-    // REQUIRES: OPERATOR + IS OVERLOADED PROPERLY.
-    // MODIFIES: NONE
+    // REQUIRES: None.
+    // MODIFIES: None.
     //  EFFECTS: RETURNS THE SUM OF ALL THE DESCENDANTS OF A GIVEN NODE.
     //
     template <class T>
@@ -484,10 +477,12 @@ namespace vcn {
     template <class T>
     void BinaryTree<T>::reflect(BNode<T> * node){
         if (node){
+            // Switch left and right nodes.
             BNode<T> * buffer = node->getLeft();
             node->setLeft(node->getRight());
             node->setRight(buffer);
             
+            // Recursively reflects the rest of the tree. 
             reflect(node->getLeft());
             reflect(node->getRight());
         }
@@ -498,8 +493,8 @@ namespace vcn {
     // MODIFIES: None
     //  EFFECTS: Produces true if the info in every node of a matches the info in every node of b.
     template <class T>
-    bool BinaryTree<T>::equals(const BinaryTree<T> * a, const BinaryTree<T> * b) const{
-        return equals( a->getRoot(), b->getRoot());
+    bool BinaryTree<T>::equals(const BinaryTree<T> * b) const{
+        return equals( this->getRoot(), b->getRoot());
     }
     
     
@@ -525,11 +520,11 @@ namespace vcn {
     //  EFFECTS: Produces true if the info in every node of a matches the info in every node of b.
     template <class T>
     bool BinaryTree<T>::operator == (const BinaryTree<T> & b) const{
-        return equals(this, &b);
+        return this->equals(&b);
     }
     
     // REQUIRES: None.
-    // MODIFIES: None
+    // MODIFIES: None.
     //  EFFECTS: Copies a binary tree.
     template <class T>
     BinaryTree<T> * BinaryTree<T>::copy(){
@@ -541,9 +536,8 @@ namespace vcn {
     }
     
     // REQUIRES: None.
-    // MODIFIES: None
-    //  EFFECTS: Copies the root node of a tree to output.
-    // Copies the root of a tree.
+    // MODIFIES: None.
+    //  EFFECTS: Returns the copy of a node (including all its descendants.)
     template <class T>
     BNode<T> * BinaryTree<T>::copy(const BNode<T> * node){
         if (node){
@@ -560,9 +554,8 @@ namespace vcn {
     
     // REQUIRES: None.
     // MODIFIES: None
-    //  EFFECTS: Produces true if the info in every node of a matches the info in every node of b.
-    
-    
+    //  EFFECTS: Produces true if the reflection of a tree is equal to the original true. False otherwise.
+    // Returns true if the tree is symmetric.
     template <class T>
     bool BinaryTree<T>::isSymmetric(){
         BinaryTree<T> * reflection = this->copy();

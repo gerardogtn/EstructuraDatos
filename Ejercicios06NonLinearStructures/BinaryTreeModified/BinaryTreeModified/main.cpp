@@ -13,8 +13,6 @@ using namespace vcn;
 
 int main(int argc, const char * argv[]) {
     BinaryTree<int> * numeros  = new BinaryTree<int>();
-    BinaryTree<int> * numeros2 = new BinaryTree<int>();
-    BinaryTree<int> * numeros3 = new BinaryTree<int>();
     
     BNode<int> * uno = new BNode<int>(1);
     numeros->insert(nullptr, uno);
@@ -30,26 +28,11 @@ int main(int argc, const char * argv[]) {
     BNode<int> * cuatro = new BNode<int>(4);
     numeros->insert(dos, cuatro);
     
-    
-    numeros2 = numeros->copy();
-    
-    numeros->preOrder();
-    std::cout << std::endl;
-    numeros2->preOrder();
-    
-    std::cout << (numeros->isSymmetric()? "Symmetric predicate doesn't work" : "Symmetric predicate works") << std:: endl;
-    
-    BNode<int> * ONE = new BNode<int>(1);
-    numeros3->insert(nullptr, ONE);
-    numeros3->insert(ONE, 2);
-    numeros3->insert(ONE, 2);
-    
-    std::cout << (numeros3->isSymmetric()? "Symmetric predicate works" : "Symmetric predicate doesn't work") << std:: endl;
-    std::cout << std::endl;
-    numeros3->preOrder();
+
+    std::cout << (numeros->isBrother(dos, tres)? "Brother works" : "Brother doesn't work") << std::endl;
+    std::cout << (numeros->isBrother(uno, tres)? "Brother doesn't work" : "Brother works") << std::endl;
+    std::cout << (numeros->isBrother(dos, cuatro)? "Brother doesn't work" : "Brother works") << std::endl;
     
     delete numeros;
-    delete numeros2;
-    delete numeros3;
 
 }
