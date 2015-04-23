@@ -17,9 +17,6 @@ namespace vcn {
     class BinaryTree {
     private:
         BNode<T> * root = nullptr;
-        bool isAncestor(BNode<T> * node,   bool output) const;
-        bool isDescendant(BNode<T> * node, bool output) const;
-        int  getDepth(BNode<T> * node, int currentDepth, BNode<T> * root) const;
         
     public:
         BinaryTree() {}
@@ -53,7 +50,7 @@ namespace vcn {
         
         // NEW METHODS //
         bool isBrother(const BNode<T> * nodeA, const BNode<T> * nodeB)    const;
-        bool isAncestor(const BNode<T> * nodeA, const BNode<T> * nodeB)   const;
+        bool isAncestor(const BNode<T> * nodeA, const BNode<T> * parent)   const;
         bool isDescendant(const BNode<T> * nodeA, const BNode<T> * nodeB) const;
         
         void printCousins(BNode<T> * node)     const;
@@ -284,9 +281,16 @@ namespace vcn {
     //
     // TODO: METHOD
     template <class T>
-    bool BinaryTree<T>::isAncestor(const BNode<T> * nodeA, const BNode<T> * nodeB)   const{
-        
-        return false; //STUB
+    bool BinaryTree<T>::isAncestor(const BNode<T> * parent, const BNode<T> * nodeA)   const{
+        BNode<T> * nodeAParent = nodeA->getParent();
+        if (parent && nodeAParent){
+            if (nodeAParent == parent)
+                return true;
+            else{
+                return isAncestor(parent, nodeAParent);
+            }
+        }
+        return false;
     }
     
     // MODIFIES:
@@ -370,7 +374,7 @@ namespace vcn {
     // Gets the depth of a node in  a tree.
     
     // TODO: OPTIMIZE SUCH THAT THERE ISN'T A COMPARISON TO ROOT ON EACH ITERATION.
-    template <class T>
+    /*template <class T>
     int  BinaryTree<T>::getDepth(BNode<T> * node, int currentDepth, BNode<T> * root) const{
         
         if (node) {
@@ -388,7 +392,7 @@ namespace vcn {
             return -1;
         }
     }
-    
+    */
     // MODIFIES: None.
     // REQUIRES: None.
     // EFFECTS:  Returns the depth of the tree.

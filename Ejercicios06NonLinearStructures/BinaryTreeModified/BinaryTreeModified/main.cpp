@@ -29,9 +29,9 @@ int main(int argc, const char * argv[]) {
     numeros->insert(dos, cuatro);
     
 
-    std::cout << (numeros->isBrother(dos, tres)? "Brother works" : "Brother doesn't work") << std::endl;
-    std::cout << (numeros->isBrother(uno, tres)? "Brother doesn't work" : "Brother works") << std::endl;
-    std::cout << (numeros->isBrother(dos, cuatro)? "Brother doesn't work" : "Brother works") << std::endl;
+    std::cout << (numeros->isAncestor(dos, tres)? "Ancestor doesn't work" : "Ancestor works") << std::endl;
+    std::cout << (numeros->isAncestor(uno, tres)? "Ancestor works" : "Ancestor doesn't work") << std::endl;
+    std::cout << (numeros->isAncestor(dos, cuatro)? "Ancestor works" : "Ancestor doesn't work") << std::endl;
     
     delete numeros;
 
