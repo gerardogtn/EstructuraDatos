@@ -49,14 +49,14 @@ namespace vcn {
         
         
         // NEW METHODS //
-        bool isBrother(const BNode<T> * nodeA, const BNode<T> * nodeB)    const;
+        bool isBrother(const BNode<T> * nodeA, const BNode<T> * nodeB)     const;
         bool isAncestor(const BNode<T> * nodeA, const BNode<T> * parent)   const;
-        bool isDescendant(const BNode<T> * nodeA, const BNode<T> * nodeB) const;
+        bool isDescendant(const BNode<T> * nodeA, const BNode<T> * nodeB)  const;
         
-        void printCousins(BNode<T> * node)     const;
-        void printcousins(int level)           const;
-        void printAncestors(BNode<T> * node)   const;
-        void printDescendants(BNode<T> * node) const;
+        void printCousins(BNode<T> * node)           const;
+        void printcousins(int level)                 const;
+        void printAncestors(const BNode<T> * node)   const;
+        void printDescendants(const BNode<T> * node) const;
         
         void printLongestPath() const;
         int  getLevel(BNode<T> * node) const;
@@ -64,10 +64,10 @@ namespace vcn {
         int  getLongestSize() const;
         
         int sumOfDescendants() const;
-        int sumOfDescendants(BNode<T> * node) const;
+        int sumOfDescendants(const BNode<T> * node) const;
         
         void makeSumOfDescendants();
-        void makeSumOfDescendants(BNode<T> * node);
+        void makeSumOfDescendants( BNode<T> * node);
         
         void reflect();
         void reflect(BNode<T> * node);
@@ -342,18 +342,20 @@ namespace vcn {
     // REQUIRES: None.
     // EFFECTS: Prints the ancestors of a node.
     template <class T>
-    void BinaryTree<T>::printAncestors(BNode<T> * node)   const{
+    void BinaryTree<T>::printAncestors(const BNode<T> * node)   const{
         ancestors(node);
     }
     
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
+    // MODIFIES: None.
+    // REQUIRES: None.
+    // EFFECTS:  Prints the descendants of a node.
     template <class T>
-    void BinaryTree<T>::printDescendants(BNode<T> * node) const{
-        
+    void BinaryTree<T>::printDescendants(const BNode<T> * node) const{
+        if (node) {
+            std::cout << *node << " -> ";
+            printDescendants(node->getLeft());
+            printDescendants(node->getRight());
+        }
         
     }
     
@@ -441,7 +443,7 @@ namespace vcn {
     //  EFFECTS: RETURNS THE SUM OF ALL THE DESCENDANTS OF A GIVEN NODE.
     //
     template <class T>
-    int BinaryTree<T>::sumOfDescendants(BNode<T> * node)const{
+    int BinaryTree<T>::sumOfDescendants(const BNode<T> * node)const{
         
         int output = 0;
         if (node){
