@@ -275,32 +275,44 @@ namespace vcn {
     
    
     
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
+    // MODIFIES: None.
+    // REQUIRES: None.
+    // EFFECTS:  Returns true if one of nodeA's parents is equal to parent.
+    // Returns true if parent is an ancestor of nodeA.
     template <class T>
     bool BinaryTree<T>::isAncestor(const BNode<T> * parent, const BNode<T> * nodeA)   const{
-        BNode<T> * nodeAParent = nodeA->getParent();
-        if (parent && nodeAParent){
-            if (nodeAParent == parent)
-                return true;
-            else{
-                return isAncestor(parent, nodeAParent);
+        if (nodeA){
+            BNode<T> * nodeAParent = nodeA->getParent();
+            if (parent && nodeAParent){
+                if (nodeAParent == parent)
+                    return true;
+                else{
+                    return isAncestor(parent, nodeAParent);
+                }
             }
         }
         return false;
     }
     
-    // MODIFIES:
-    // REQUIRES:
-    // EFFECTS:
-    //
-    // TODO: METHOD
+    // MODIFIES: None.
+    // REQUIRES: None.
+    // EFFECTS:  Returns true if descendant is one of the left or right nodes (or thereof descendants)
+    // of nodeA. False otherwise.
+    // Returns true if descendant is a descendant of nodeA. 
     template <class T>
-    bool BinaryTree<T>::isDescendant(const BNode<T> * nodeA, const BNode<T> * nodeB) const{
-        return false; //STUB
+    bool BinaryTree<T>::isDescendant(const BNode<T> * descendant, const BNode<T> * nodeA) const{
+        bool output = false;
+        
+        if(descendant && nodeA){
+            output = output || nodeA->getRight() == descendant;
+            output = output || nodeA->getLeft() == descendant;
+            
+            output = output || isDescendant(descendant, nodeA->getRight());
+            output = output || isDescendant(descendant, nodeA->getLeft());
+        }
+        
+        
+        return output;
         
     }
     
