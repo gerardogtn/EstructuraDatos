@@ -8,7 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		D48D7B731AEC32CD00503E8A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48D7B721AEC32CD00503E8A /* main.cpp */; };
+		D48D7B941AEC332E00503E8A /* Estudiante.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48D7B921AEC332E00503E8A /* Estudiante.cpp */; };
+		D48D7B971AEC33E500503E8A /* Relationship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48D7B951AEC33E500503E8A /* Relationship.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D48D7B901AEC32EA00503E8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D48D7B8C1AEC32E800503E8A /* ejercicio01.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D48D7B821AEC32E800503E8A;
+			remoteInfo = ejercicio01;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D48D7B6D1AEC32CD00503E8A /* CopyFiles */ = {
@@ -25,6 +37,11 @@
 /* Begin PBXFileReference section */
 		D48D7B6F1AEC32CD00503E8A /* ejercicio02 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ejercicio02; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48D7B721AEC32CD00503E8A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D48D7B8C1AEC32E800503E8A /* ejercicio01.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ejercicio01.xcodeproj; path = ../ejercicio01/ejercicio01.xcodeproj; sourceTree = "<group>"; };
+		D48D7B921AEC332E00503E8A /* Estudiante.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Estudiante.cpp; sourceTree = "<group>"; };
+		D48D7B931AEC332E00503E8A /* Estudiante.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Estudiante.h; sourceTree = "<group>"; };
+		D48D7B951AEC33E500503E8A /* Relationship.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Relationship.cpp; sourceTree = "<group>"; };
+		D48D7B961AEC33E500503E8A /* Relationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relationship.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +58,7 @@
 		D48D7B661AEC32CD00503E8A = {
 			isa = PBXGroup;
 			children = (
+				D48D7B8C1AEC32E800503E8A /* ejercicio01.xcodeproj */,
 				D48D7B711AEC32CD00503E8A /* ejercicio02 */,
 				D48D7B701AEC32CD00503E8A /* Products */,
 			);
@@ -58,8 +76,20 @@
 			isa = PBXGroup;
 			children = (
 				D48D7B721AEC32CD00503E8A /* main.cpp */,
+				D48D7B921AEC332E00503E8A /* Estudiante.cpp */,
+				D48D7B931AEC332E00503E8A /* Estudiante.h */,
+				D48D7B951AEC33E500503E8A /* Relationship.cpp */,
+				D48D7B961AEC33E500503E8A /* Relationship.h */,
 			);
 			path = ejercicio02;
+			sourceTree = "<group>";
+		};
+		D48D7B8D1AEC32E800503E8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D48D7B911AEC32EA00503E8A /* ejercicio01 */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,6 +136,12 @@
 			mainGroup = D48D7B661AEC32CD00503E8A;
 			productRefGroup = D48D7B701AEC32CD00503E8A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D48D7B8D1AEC32E800503E8A /* Products */;
+					ProjectRef = D48D7B8C1AEC32E800503E8A /* ejercicio01.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D48D7B6E1AEC32CD00503E8A /* ejercicio02 */,
@@ -113,12 +149,24 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		D48D7B911AEC32EA00503E8A /* ejercicio01 */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = ejercicio01;
+			remoteRef = D48D7B901AEC32EA00503E8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D48D7B6B1AEC32CD00503E8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D48D7B731AEC32CD00503E8A /* main.cpp in Sources */,
+				D48D7B971AEC33E500503E8A /* Relationship.cpp in Sources */,
+				D48D7B941AEC332E00503E8A /* Estudiante.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
