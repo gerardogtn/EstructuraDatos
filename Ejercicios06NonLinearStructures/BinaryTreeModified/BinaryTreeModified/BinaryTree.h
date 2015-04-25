@@ -270,7 +270,10 @@ namespace vcn {
     // 
     template <class T>
     bool BinaryTree<T>::isBrother(const BNode<T> * nodeA, const BNode<T> * nodeB) const{
-        return nodeA->isBrother(nodeB);
+        if (nodeA && nodeB){
+            return nodeA->isBrother(nodeB);
+        }
+        return false;
     }
     
    
@@ -281,14 +284,12 @@ namespace vcn {
     // Returns true if parent is an ancestor of nodeA.
     template <class T>
     bool BinaryTree<T>::isAncestor(const BNode<T> * parent, const BNode<T> * nodeA)   const{
-        if (nodeA){
+        if (parent && nodeA && nodeA->getParent()){
             BNode<T> * nodeAParent = nodeA->getParent();
-            if (parent && nodeAParent){
-                if (nodeAParent == parent)
-                    return true;
-                else{
-                    return isAncestor(parent, nodeAParent);
-                }
+            if (nodeAParent == parent)
+                return true;
+            else{
+                return isAncestor(parent, nodeAParent);
             }
         }
         return false;

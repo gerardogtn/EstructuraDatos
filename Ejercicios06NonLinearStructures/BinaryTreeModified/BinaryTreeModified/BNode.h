@@ -103,10 +103,13 @@ namespace vcn {
     template <class T>
     bool BNode<T>::isBrother(const BNode<T> * nodeA) const{
         bool output;
-        output = nodeA->getParent() == this->getParent();
-        output = output && ((nodeA->getParent()->getRight() == this) ||(nodeA->getParent()->getLeft() == this));
-        output = output && ((this->getParent()->getRight() == nodeA) ||(this->getParent()->getLeft() == nodeA));
-        return output;
+        if (nodeA->getParent() && this->getParent()){
+            output = nodeA->getParent() == this->getParent();
+            output = output && ((nodeA->getParent()->getRight() == this) ||(nodeA->getParent()->getLeft() == this));
+            output = output && ((this->getParent()->getRight() == nodeA) ||(this->getParent()->getLeft() == nodeA));
+            return output;
+        }
+        return false;
     }
 }
 
