@@ -10,6 +10,7 @@
 		D48D7B731AEC32CD00503E8A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48D7B721AEC32CD00503E8A /* main.cpp */; };
 		D48D7B941AEC332E00503E8A /* Estudiante.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48D7B921AEC332E00503E8A /* Estudiante.cpp */; };
 		D48D7B971AEC33E500503E8A /* Relationship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48D7B951AEC33E500503E8A /* Relationship.cpp */; };
+		D48D7B9A1AEC5C9F00503E8A /* Comunidad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48D7B981AEC5C9F00503E8A /* Comunidad.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		D48D7B931AEC332E00503E8A /* Estudiante.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Estudiante.h; sourceTree = "<group>"; };
 		D48D7B951AEC33E500503E8A /* Relationship.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Relationship.cpp; sourceTree = "<group>"; };
 		D48D7B961AEC33E500503E8A /* Relationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Relationship.h; sourceTree = "<group>"; };
+		D48D7B981AEC5C9F00503E8A /* Comunidad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Comunidad.cpp; sourceTree = "<group>"; };
+		D48D7B991AEC5C9F00503E8A /* Comunidad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comunidad.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 				D48D7B931AEC332E00503E8A /* Estudiante.h */,
 				D48D7B951AEC33E500503E8A /* Relationship.cpp */,
 				D48D7B961AEC33E500503E8A /* Relationship.h */,
+				D48D7B981AEC5C9F00503E8A /* Comunidad.cpp */,
+				D48D7B991AEC5C9F00503E8A /* Comunidad.h */,
 			);
 			path = ejercicio02;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			files = (
 				D48D7B731AEC32CD00503E8A /* main.cpp in Sources */,
 				D48D7B971AEC33E500503E8A /* Relationship.cpp in Sources */,
+				D48D7B9A1AEC5C9F00503E8A /* Comunidad.cpp in Sources */,
 				D48D7B941AEC332E00503E8A /* Estudiante.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +259,11 @@
 		D48D7B771AEC32CD00503E8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/gerardogtn/boost_1_58_0,
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -260,6 +271,11 @@
 		D48D7B781AEC32CD00503E8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/gerardogtn/boost_1_58_0,
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

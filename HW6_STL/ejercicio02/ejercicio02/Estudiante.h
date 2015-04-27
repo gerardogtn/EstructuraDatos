@@ -13,32 +13,33 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include <ctime>
-#include <chrono>
 #include "Relationship.h"
 
 using namespace std;
 
 class Estudiante{
-    friend ostream & operator<<(ostream & os, Estudiante student);
+    typedef std::chrono::time_point<std::chrono::system_clock> Date;
+    friend ostream & operator<<(ostream & os, const Estudiante & student);
     
 private:
-    int maxNumOfFriends;
-    int matricula;
     string nombre;
-    Relationship a; 
-    bool hadRelationship;
+    list<Relationship> relaciones; 
     
 public:
     Estudiante();
     
-    void addRelationship(Estudiante other);
-    void addRelationship(Estudiante other, time date);
-    void removeRelationship(Estudiante other);
-    void removeRelationship(Estudiante other, time date);
+    void addRelationship(const Estudiante other);
+    void addRelationship(const Estudiante other, const Date time);
+    void removeRelationship(const Estudiante other);
+    void removeRelationship(const Estudiante other, const Date time);
     
-    bool hasRelationship();
-    bool hasHadRelationship();
+    bool hasHadRelationship() const;
+    void printRelationships() const;
+    
+    int getNumOfFriends() const;
+    string getName() const{
+        return nombre; 
+    };
 };
 
 
