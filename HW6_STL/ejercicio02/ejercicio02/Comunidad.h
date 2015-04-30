@@ -25,16 +25,16 @@ private:
     
 public:
     Comunidad(){}
-    Comunidad(string _nombre) : nombre(_nombre){}
-    Comunidad(list<Estudiante> memberList) : miembros(memberList){}
-    Comunidad(string _nombre, list<Estudiante> memberList) : nombre(_nombre), miembros(memberList) {}
+    Comunidad(const string _nombre) : nombre(_nombre){}
+    Comunidad(const list<Estudiante> memberList) : miembros(memberList){}
+    Comunidad(const string _nombre, const list<Estudiante> memberList) : nombre(_nombre), miembros(memberList) {}
     
-    void printNoRelationsips();
-    void printMostRelationships();
-    void printMostStable();
+    void printNoRelationsips() const;
+    void printMostRelationships() const;
+    void printMostStable() const;
     
-    void addStudent(Estudiante student);
-    void removeStudent(Estudiante student); 
+    void addStudent(const Estudiante student);
+    void removeStudent(const Estudiante student);
     
 };
 #endif /* defined(__ejercicio02__Comunidad__) */

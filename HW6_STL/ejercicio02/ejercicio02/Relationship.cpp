@@ -8,11 +8,17 @@
 
 #include "Relationship.h"
 
+ostream & operator<<(ostream & os, const Relationship &relationship){
+    os << "Relacion con: " << relationship.getFriend(); 
+
+    return os;
+}
+
 
 // REQUIRES: None.
 // MODIFIES: None.
 //  EFFECTS: Returns the time between the start of a relationship and now.
-days Relationship::getRelationshipTime(){
+date_duration Relationship::getRelationshipTime(){
     return getRelationshipTime(day_clock::local_day());
 }
 
@@ -20,8 +26,8 @@ days Relationship::getRelationshipTime(){
 // REQUIRES: None.
 // MODIFIES: None.
 //  EFFECTS: Returns the time between the start of a relationship and dateLimit.
-days Relationship::getRelationshipTime(date dateLimit){
-    days output = dateLimit - startDate;
+date_duration Relationship::getRelationshipTime(date dateLimit){
+    date_duration output = dateLimit - startDate;
     return output;
 }
 
@@ -50,7 +56,7 @@ ostream & operator<<(ostream &os, Relationship &relationship){
 // MODIFIES: None.
 //  EFFECTS: Returns a copy of this.
 Relationship Relationship::copy(){
-    Relationship output(this->getStartDate(), this->getFriend());
+    Relationship output(this->getFriend(), this->getStartDate());
     
     if (!isActive()) {
         output.endRelationship(this->getEndDate());
@@ -58,7 +64,7 @@ Relationship Relationship::copy(){
     
     return output;
 }
-
+ 
 // REQUIRES: None.
 // MODIFIES: this.
 // EFFECTS:  Sets this end date to now and sets active to false.
@@ -76,5 +82,13 @@ void Relationship::endRelationship(date _endDate){
     this->endDate = _endDate;
 }
 
+
+Relationship & Relationship::operator=(const Relationship & ref){
+    Relationship output(this->getFriend(), this->getStartDate());
+    if(!isActive()){
+        output.endRelationship(this->getEndDate());
+    }
+    return output;
+}
 
 

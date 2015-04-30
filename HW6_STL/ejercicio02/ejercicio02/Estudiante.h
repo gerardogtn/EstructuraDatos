@@ -14,32 +14,45 @@
 #include <string>
 #include <list>
 #include "Relationship.h"
+#include "boost/date_time/gregorian/gregorian.hpp"
 
 using namespace std;
+using namespace boost::gregorian;
 
 class Estudiante{
-    typedef std::chrono::time_point<std::chrono::system_clock> Date;
     friend ostream & operator<<(ostream & os, const Estudiante & student);
+    friend bool      operator==(const Estudiante & a, const Estudiante & b); 
     
 private:
     string nombre;
     list<Relationship> relaciones; 
     
 public:
-    Estudiante();
+    Estudiante() {};
+    Estudiante(string name) : nombre(name){};
     
-    void addRelationship(const Estudiante other);
-    void addRelationship(const Estudiante other, const Date time);
-    void removeRelationship(const Estudiante other);
-    void removeRelationship(const Estudiante other, const Date time);
+    void addRelationship(Estudiante & other);
+    void addRelationship(Estudiante & other, date time);
+    void addRelationship(Relationship & relation);
+    
+    void endRelationship(const Estudiante & other);
+    void endRelationship(const Estudiante & other, date time);
+    void endRelationship(const Relationship & relation);
     
     bool hasHadRelationship() const;
     void printRelationships() const;
     
     int getNumOfFriends() const;
+    date_duration getTotalRelationshipTime() const; 
+    
     string getName() const{
         return nombre; 
     };
+    list<Relationship> getRelationships() const{
+        return relaciones;
+    }
+    
+    Estudiante copy(const Estudiante & other); 
 };
 
 

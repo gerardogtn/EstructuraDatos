@@ -25,41 +25,44 @@ class Relationship{
     
     
 private:
-    Estudiante &aFriend;
+    Estudiante & aFriend;
     date startDate;
     date endDate;
     bool active = true;
     
 public:
     Relationship();
-    Relationship(date _startDate, Estudiante & _aFriend) : startDate(_startDate), aFriend(_aFriend) {}
-    ~Relationship(); 
+    Relationship(Estudiante & _aFriend): aFriend(_aFriend){};
+    Relationship(Estudiante & _aFriend, date _startDate) : aFriend(_aFriend), startDate(_startDate){};
     
-    Estudiante & getFriend(){
+    Relationship(Estudiante & _aFriend, date _startDate, date _endDate) : aFriend(_aFriend), startDate(_startDate), endDate(_endDate){};
+    
+    
+    
+    Estudiante & getFriend() const{
         return aFriend;
     }
     
-    date getStartDate(){
+    date getStartDate() const{
         return startDate;
     }
     
-    date getEndDate(){
+    date getEndDate() const{
         return endDate;
     }
     
-    bool isActive(){
+    bool isActive() const {
         return active; 
     }
     
     void endRelationship();
     void endRelationship(date);
     
+    date_duration getRelationshipTime();
+    date_duration getRelationshipTime(date dateLimit);
     
-    days getRelationshipTime();
-    days getRelationshipTime(date dateLimit);
-    
-    Relationship copy(); 
-    
+    Relationship copy();
+    Relationship & operator=(const Relationship & ref);
 };
 
 

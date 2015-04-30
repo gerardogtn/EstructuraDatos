@@ -7,9 +7,29 @@
 //
 
 #include <iostream>
+#include "Comunidad.h"
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    Estudiante uno("Jesus");
+    Estudiante dos("Pedro");
+    Estudiante tres("Karla");
+    Estudiante cuatro("Ximena");
+    Estudiante cinco("Andres");
+    
+    Comunidad  community("ITCs");
+    
+    community.addStudent(uno);
+    community.addStudent(dos);
+    community.addStudent(tres);
+    community.addStudent(cuatro);
+    community.addStudent(cinco);
+    
+    community.printMostRelationships();
+    community.printNoRelationsips();
+    community.printMostStable();
+    
+    
     return 0;
 }

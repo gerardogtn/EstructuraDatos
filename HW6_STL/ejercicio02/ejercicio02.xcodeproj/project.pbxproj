@@ -299,6 +299,7 @@
 				D48D7B781AEC32CD00503E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
