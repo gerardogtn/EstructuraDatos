@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D48A84EB1AF30FB100EAB5DB /* Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48A84E91AF30FB100EAB5DB /* Container.cpp */; };
+		D48A84EE1AF3102C00EAB5DB /* Product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48A84EC1AF3102C00EAB5DB /* Product.cpp */; };
+		D48A84F11AF3109700EAB5DB /* Dock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48A84EF1AF3109700EAB5DB /* Dock.cpp */; };
 		D48D7B861AEC32E800503E8A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D48D7B851AEC32E800503E8A /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +26,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D48A84E91AF30FB100EAB5DB /* Container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Container.cpp; sourceTree = "<group>"; };
+		D48A84EA1AF30FB100EAB5DB /* Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
+		D48A84EC1AF3102C00EAB5DB /* Product.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Product.cpp; sourceTree = "<group>"; };
+		D48A84ED1AF3102C00EAB5DB /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		D48A84EF1AF3109700EAB5DB /* Dock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dock.cpp; sourceTree = "<group>"; };
+		D48A84F01AF3109700EAB5DB /* Dock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dock.h; sourceTree = "<group>"; };
 		D48D7B821AEC32E800503E8A /* ejercicio01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ejercicio01; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48D7B851AEC32E800503E8A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				D48D7B851AEC32E800503E8A /* main.cpp */,
+				D48A84E91AF30FB100EAB5DB /* Container.cpp */,
+				D48A84EA1AF30FB100EAB5DB /* Container.h */,
+				D48A84EC1AF3102C00EAB5DB /* Product.cpp */,
+				D48A84ED1AF3102C00EAB5DB /* Product.h */,
+				D48A84EF1AF3109700EAB5DB /* Dock.cpp */,
+				D48A84F01AF3109700EAB5DB /* Dock.h */,
 			);
 			path = ejercicio01;
 			sourceTree = "<group>";
@@ -119,6 +134,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48D7B861AEC32E800503E8A /* main.cpp in Sources */,
+				D48A84EE1AF3102C00EAB5DB /* Product.cpp in Sources */,
+				D48A84F11AF3109700EAB5DB /* Dock.cpp in Sources */,
+				D48A84EB1AF30FB100EAB5DB /* Container.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +253,7 @@
 				D48D7B8B1AEC32E800503E8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
