@@ -52,18 +52,16 @@ void Comunidad::printMostRelationships() const{
         
         Estudiante output = miembros.front();
         int max = output.getNumOfFriends();
-        int switches = 0;
         
         for (auto e : miembros) {
             int current = e.getNumOfFriends();
             if (current > max){
                 max = current;
                 output = e ;
-                switches++;
             }
         }
     
-        if(switches > 0 && output.getRelationships().empty()){
+        if(!output.getRelationships().empty()){
             std::cout << output << std::endl;
         } else {
             std::cout << "No existe nadie con una relacion" << std::endl;
@@ -85,31 +83,37 @@ void Comunidad::printMostStable() const{
     if (!miembros.empty()){
         
         Estudiante output;
-        date_duration max;
+        int max = 0;
         bool exit = false;
         
         for (auto e: miembros) {
             exit = exit || e.hasHadRelationship();
         }
         
-        if (exit) {
+        if (!exit) {
             std::cout << "No existe nadie con una relacion" << std::endl;
-            return; 
+            std::cout << std::endl;
+            return;
         }
         
         for (auto e : miembros) {
-            if (e.hasHadRelationship()){
-                
-                date_duration current = output.getTotalRelationshipTime()/ output.getNumOfFriends();
+            if (e.hasHadRelationship() && e.getNumOfFriends() > 0){
+                int a = e.getTotalRelationshipTime();
+                std::cout << e << ": " << e.getTotalRelationshipTime() << " / " << e.getNumOfFriends() << std::endl;
+                int current = e.getTotalRelationshipTime() / e.getNumOfFriends();
                 if (current > max){
                     max = current;
-                    output = e ;
+                    output = e;
                 }
-                
             }
         }
         
-        std::cout << output << std::endl;
+        
+        if(!output.getRelationships().empty()){
+            std::cout << output << std::endl;
+        } else {
+            std::cout << "No existe nadie con una relacion" << std::endl;
+        }
         
     }else {
         std::cout << "No existe nadie en la comunidad. " << std::endl;

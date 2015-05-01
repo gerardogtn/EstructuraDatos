@@ -55,11 +55,20 @@ public:
         return active; 
     }
     
+    
+    void setEndDate(date _end){
+        endDate = _end;
+    }
+    
+    void makeInactive(){
+        active = false;
+    }
+    
     void endRelationship();
     void endRelationship(date);
     
-    date_duration getRelationshipTime();
-    date_duration getRelationshipTime(date dateLimit);
+    int getRelationshipTime();
+    int getRelationshipTime(date dateLimit);
     
     Relationship copy();
     Relationship & operator=(const Relationship & ref);

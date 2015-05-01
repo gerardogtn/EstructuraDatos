@@ -42,9 +42,10 @@ void Estudiante::endRelationship(const Estudiante & other){
 }
 
 void Estudiante::endRelationship(const Estudiante & other, const date time){
-    for (auto e : relaciones){
-        if (e.getFriend() == other && e.isActive()){
-            e.endRelationship(time);
+    for (auto r : relaciones){
+        if (r.getFriend() == other && r.isActive()){
+            r.endRelationship(time);
+            return;
         }
     }
 }
@@ -81,13 +82,43 @@ Estudiante copy(const Estudiante & other){
 
 
 
-date_duration Estudiante::getTotalRelationshipTime() const{
-    date_duration output;
+int Estudiante::getTotalRelationshipTime() const{
+    int output = 0;
     for (auto r : relaciones){
         output = output + r.getRelationshipTime();
     }
     return output;
 }
 
+
+double Estudiante::percentLonely(date init, date end){
+    double output;
+    
+    int numerator = relaciones.front().getRelationshipTime();
+    
+    for (auto r: relaciones){
+        int max = r.getRelationshipTime();
+        if (max > numerator){
+            numerator = max;
+        }
+    }
+    
+    output = numerator / (end - init).days();
+    output = output*100;
+    return output;
+}
+
+void Estudiante::printLonely(date init, date end){
+    std::cout << percentLonely(init, end) << "%" << std::endl;
+}
+
+
+double Estudiante::percentCompany(date init, date end){
+    return 100 - percentLonely(init, end);
+}
+
+void Estudiante::printCompany(date init, date end){
+    std::cout << percentCompany(init, end) << "%" << std::endl;
+}
 
 

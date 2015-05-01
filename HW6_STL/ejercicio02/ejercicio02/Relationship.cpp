@@ -10,7 +10,6 @@
 
 ostream & operator<<(ostream & os, const Relationship &relationship){
     os << "Relacion con: " << relationship.getFriend(); 
-
     return os;
 }
 
@@ -18,17 +17,30 @@ ostream & operator<<(ostream & os, const Relationship &relationship){
 // REQUIRES: None.
 // MODIFIES: None.
 //  EFFECTS: Returns the time between the start of a relationship and now.
-date_duration Relationship::getRelationshipTime(){
-    return getRelationshipTime(day_clock::local_day());
+int Relationship::getRelationshipTime(){
+    if (isActive()){
+        return getRelationshipTime(day_clock::local_day());
+        
+    } else{
+        return getRelationshipTime(endDate);
+    }
+    
+    
 }
 
 
 // REQUIRES: None.
 // MODIFIES: None.
 //  EFFECTS: Returns the time between the start of a relationship and dateLimit.
-date_duration Relationship::getRelationshipTime(date dateLimit){
-    date_duration output = dateLimit - startDate;
-    return output;
+int Relationship::getRelationshipTime(date dateLimit){
+    date_duration output;
+    if (isActive()){
+        output = dateLimit - startDate;
+        
+    } else{
+        output = endDate - startDate; 
+    }
+    return (int) output.days();
 }
 
 
@@ -78,8 +90,8 @@ void Relationship::endRelationship(){
 // EFFECTS:  Sets this end date to _endDate and sets active to false.
 // Ends the relationship at a particular date.
 void Relationship::endRelationship(date _endDate){
-    this->active  = false;
-    this->endDate = _endDate;
+    makeInactive();
+    setEndDate(_endDate);
 }
 
 

@@ -43,7 +43,7 @@ public:
     void printRelationships() const;
     
     int getNumOfFriends() const;
-    date_duration getTotalRelationshipTime() const; 
+    int getTotalRelationshipTime() const;
     
     string getName() const{
         return nombre; 
@@ -52,7 +52,13 @@ public:
         return relaciones;
     }
     
-    Estudiante copy(const Estudiante & other); 
+    Estudiante copy(const Estudiante & other);
+    
+    double percentLonely(date init, date end);
+    void printLonely(date init, date end);
+    
+    double percentCompany(date init, date end);
+    void printCompany(date init, date end);
 };
 
 
