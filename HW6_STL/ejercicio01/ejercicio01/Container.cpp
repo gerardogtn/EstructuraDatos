@@ -40,7 +40,7 @@ ostream & operator<<(ostream & os, const Container & cont){
         os << setw(10) << "" << p << endl;
     }
     
-    os << "Costo del contenedor: $" << setw(7) << cont.costOfContainer() << endl;
+    os << "Costo del contenedor: $" << setw(7) << setprecision(2) << std::fixed << cont.costOfContainer() << endl;
     
     return os;
 }

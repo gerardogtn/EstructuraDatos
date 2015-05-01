@@ -19,6 +19,7 @@ class Dock{
 private:
     const int n  = 3; //Amount of containers per stack.
     const int m  = 5; //Amount of stacks.
+    static int containerNum;
     vector<stack<Container>> vectorStack;
     
 public:
@@ -30,8 +31,8 @@ public:
         vectorStack.resize(m);
     };
     
-    bool addContainer(Container cont);
-    
+    bool addContainer(Container & cont);
+    void printStacks();
 };
 
 

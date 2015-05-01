@@ -7,19 +7,29 @@
 //
 
 #include "Dock.h"
+#include <math.h>
+#include <algorithm>
+
+int Dock::containerNum = 1;
 
 // REQUIRES: None. 
 // MODIFIES: containers.
 // EFFECTS : Adds a container to the first possible stack.
 // If action can be completed returns true. Otherwise false.
-bool Dock::addContainer(Container cont){
-    for (auto s: vectorStack) {
-        if (vectorStack.size() < n && s.size() < m) {
+bool Dock::addContainer(Container & cont){
+    double dummy = containerNum;
+    dummy = dummy / n;
+    int a = ceil(dummy);
+    
+    
+    for (auto s : this->vectorStack) {
+        if (a <= 1){
             s.push(cont);
+            containerNum++;
             return true;
         }
+        a--; 
     }
-    
     return false;
 }
 
@@ -28,28 +38,28 @@ bool Dock::addContainer(Container cont){
 // MODIFIES: os.
 // EFFECTS : Overloads stream output operator. 
 ostream & operator<<(ostream & os, const Dock & duck){
+    
+    
     int count = 1;
     for(auto s : duck.vectorStack){
-        std::cout << "Pila " << setw(3) << count << std::endl;
-        
-        vector<Container> buffer;
-        int countB = 1;
+        std::cout << "Pila " << setw(3) << count << ": " << std::endl;
+        stack<Container> dummy;
         
         while (!s.empty()) {
-            Container &a = s.top();
-            buffer.insert(buffer.begin(), a);
+            dummy.push(s.top());
             s.pop();
         }
         
-        for (c : buffer) {
-            s.push(c);
-            std::cout << "Contenedor " << setw(3) << countB;
-            std::cout << setw(3) << &c << std::endl;
-            countB++;
+        while (!dummy.empty()) {
+            Container & a = dummy.top();
+            s.push(a);
+            std::cout << &a << std::endl;
+            
         }
 
         count++;
-        std::cout << std::endl;
+        
+        std::cout << std::endl; 
     }
     return os;
 }
