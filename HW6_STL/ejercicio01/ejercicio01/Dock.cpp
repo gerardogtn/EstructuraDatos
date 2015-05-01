@@ -22,3 +22,34 @@ bool Dock::addContainer(Container cont){
     
     return false;
 }
+
+
+// REQUIRES: None.
+// MODIFIES: os.
+// EFFECTS : Overloads stream output operator. 
+ostream & operator<<(ostream & os, const Dock & duck){
+    int count = 1;
+    for(auto s : duck.vectorStack){
+        std::cout << "Pila " << setw(3) << count << std::endl;
+        
+        vector<Container> buffer;
+        int countB = 1;
+        
+        while (!s.empty()) {
+            Container &a = s.top();
+            buffer.insert(buffer.begin(), a);
+            s.pop();
+        }
+        
+        for (c : buffer) {
+            s.push(c);
+            std::cout << "Contenedor " << setw(3) << countB;
+            std::cout << setw(3) << &c << std::endl;
+            countB++;
+        }
+
+        count++;
+        std::cout << std::endl;
+    }
+    return os;
+}

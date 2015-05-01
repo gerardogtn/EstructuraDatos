@@ -16,7 +16,7 @@
 using namespace std;
 
 class Container{
-    
+    friend ostream & operator<<(ostream & os, const Container & cont);
     
 private:
     int id_container;
@@ -42,8 +42,7 @@ public:
     }
     
     void addProduct(Product & toAdd); 
-    double costOfContainer();
-    void printContainer();
+    double costOfContainer() const;
     
     
 };

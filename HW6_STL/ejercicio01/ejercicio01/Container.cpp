@@ -20,7 +20,7 @@ void Container::addProduct(Product & toAdd){
 // REQUIRES: None.
 // MODIFIES: None.
 // EFFECTS : Calculates the total cost of a container.
-double Container::costOfContainer(){
+double Container::costOfContainer() const{
     double output = 0;
     
     for(auto p : products){
@@ -33,12 +33,14 @@ double Container::costOfContainer(){
 // REQUIRES:
 // MODIFIES:
 // EFFECTS :
-void Container::printContainer(){
-    cout << containerName << ": " << endl;
+ostream & operator<<(ostream & os, const Container & cont){
+    os << cont.containerName << ": " << endl;
     
-    for (auto p : products){
-        cout << setw(10) << "" << p << endl;
+    for (auto p : cont.products){
+        os << setw(10) << "" << p << endl;
     }
     
-    cout << "Costo del contenedor: $" << setw(7) << costOfContainer() << endl;
+    os << "Costo del contenedor: $" << setw(7) << cont.costOfContainer() << endl;
+    
+    return os;
 }

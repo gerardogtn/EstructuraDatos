@@ -13,7 +13,8 @@
 #include <stack>
 
 class Dock{
-    
+    // PUN INTENDED :P
+    friend ostream & operator<<(ostream & os, const Dock & duck); 
     
 private:
     const int n  = 3; //Amount of containers per stack.
