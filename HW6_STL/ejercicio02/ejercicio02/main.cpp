@@ -31,17 +31,8 @@ int main(int argc, const char * argv[]) {
     tres.addRelationship(cuatro, B);
     cuatro.addRelationship(cinco, D);
     
-    for (auto r : uno.getRelationships()){
-        std::cout << r.getEndDate() << ": ";
-        std::cout << (r.isActive()? "Activa": "NO activa") << std::endl;
-    }
     uno.endRelationship(dos, B);
     uno.endRelationship(cinco, C);
-    
-    for (auto r : uno.getRelationships()){
-        std::cout << r.getEndDate() << ": ";
-        std::cout << (r.isActive()? "Activa": "NO activa") << std::endl;
-    }
     
     dos.endRelationship(tres, B);
     tres.endRelationship(cuatro, C);
@@ -52,9 +43,15 @@ int main(int argc, const char * argv[]) {
     community.addStudent(cuatro);
     community.addStudent(cinco);
     
-    //community.printMostRelationships();
-    //community.printNoRelationsips();
-    //community.printMostStable();
+    community.printMostRelationships();
+    community.printNoRelationsips();
+    community.printMostStable();
+    
+    tres.printLonely(A, D);
+    tres.printCompany(A, D);
+    std::cout << std::endl;
+    
+    uno.printRelationships();
     
     return 0;
 }

@@ -98,8 +98,6 @@ void Comunidad::printMostStable() const{
         
         for (auto e : miembros) {
             if (e.hasHadRelationship() && e.getNumOfFriends() > 0){
-                int a = e.getTotalRelationshipTime();
-                std::cout << e << ": " << e.getTotalRelationshipTime() << " / " << e.getNumOfFriends() << std::endl;
                 int current = e.getTotalRelationshipTime() / e.getNumOfFriends();
                 if (current > max){
                     max = current;

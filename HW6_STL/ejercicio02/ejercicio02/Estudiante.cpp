@@ -61,7 +61,8 @@ void Estudiante::printRelationships() const{
     std::cout << "---------------------------------------------------" << std::endl;
     
     for (auto e: relaciones){
-        std::cout << e << std:: endl;
+        std::cout << e.getFriend().getName()  << std:: endl;
+        std::cout << "          por " << e.getRelationshipTime() << " dias." << std::endl;
     }
     std::cout << std::endl;
 }
