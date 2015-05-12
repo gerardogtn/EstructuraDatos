@@ -10,6 +10,9 @@
 #define BinaryTree_BinaryTree_h
 
 #include "BNode.h"
+#include <string>
+
+using namespace std;
 
 namespace vcn {
 
