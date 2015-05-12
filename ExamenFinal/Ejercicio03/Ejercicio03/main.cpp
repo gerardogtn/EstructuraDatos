@@ -32,7 +32,7 @@ BinaryTree<char> * buildTree(string preOrder, string inOrder){
 }
 
 // REQUIRES: preOrder and inOrder have the same length.
-// MODIFIES: None.
+// MODIFIES: inOrder and preOrder strings.
 // EFFECTS : Builds a string from an in-order and pre-order stream of characters and a root outputRoot.
 BNode<char> * buildTree(string preOrder, string inOrder, BNode<char> * outputRoot){
     BNode<char> * left = nullptr;
@@ -45,7 +45,9 @@ BNode<char> * buildTree(string preOrder, string inOrder, BNode<char> * outputRoo
             inOrder.erase(inOrder.begin() + i - 1);
             preOrder.erase(preOrder.begin());
             
+            // Pasar a izquierdo el preOrder y  inOrder desde el inicio hasta i -1.
             left = buildTree(preOrder, inOrder, left);
+            // Pasar a izquierdo el preOrder y  inOrder desde i-1 hasta el final.
             right = buildTree(preOrder, inOrder, right);
             
             break;
@@ -54,5 +56,5 @@ BNode<char> * buildTree(string preOrder, string inOrder, BNode<char> * outputRoo
  
     outputRoot->setLeft(left);
     outputRoot->setRight(right);
-    return outputRoot; //STUB
+    return outputRoot;
 }
