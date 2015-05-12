@@ -34,6 +34,9 @@ public:
     
     template <class Vn, class En>
     friend std::ostream & operator <<(std::ostream & , const  Edge<Vn, En> &);
+    
+    bool Edge<V, E>::operator == (Edge<V, E> & other) const;
+
 
 };
 
@@ -67,6 +70,15 @@ std::ostream & operator <<(std::ostream & os , const  Edge<V, E> & edge  )
     os << edge.info << " ---> " << edge.getTarget()->getInfo() << std::endl;
     
     return os;
+}
+
+// REQUIRES: None.
+// MODIFIES: None.
+// EFFECTS : Returns true if the vertices info are equal. False otherwise.
+template <class V, class E>
+bool Edge<V, E>::operator == (Edge<V, E> & other) const
+{
+    return info == other.info;
 }
 
 #endif
