@@ -11,27 +11,9 @@
 using namespace vcn;
 
 BinaryTree<char> * buildTree(string preOrder, string inOrder);
-BinaryTree<char> * buildTree(string preOrder, string inOrder, BNode<char> * outputRoot); 
+BNode<char> * buildTree(string preOrder, string inOrder, BNode<char> * outputRoot);
 
 int main(int argc, const char * argv[]) {
-    BinaryTree<int> * numeros  = new BinaryTree<int>();
-    
-    BNode<int> * uno = new BNode<int>(1);
-    numeros->insert(nullptr, uno);
-    
-    BNode<int> * dos = new BNode<int>(2);
-    numeros->insert(uno, dos);
-    
-    BNode<int> * cero = new BNode<int>(0);
-    numeros->insert(nullptr, cero);
-    
-    BNode<int> * tres = new BNode<int>(3);
-    numeros->insert(uno, tres);
-    
-    BNode<int> * cuatro = new BNode<int>(4);
-    numeros->insert(dos, cuatro);
-    
-    numeros->preOrder();
     BinaryTree<char> * test = buildTree("GEAIBMCLDFKJH", "IABEGLDCFMKHJ");
     test->preOrder();
     
@@ -42,24 +24,39 @@ int main(int argc, const char * argv[]) {
 // MODIFIES: None.
 //  EFFECTS: Builds a string from an in-order and pre-order stream of characters.
 BinaryTree<char> * buildTree(string preOrder, string inOrder){
+    BinaryTree<char> * output = new BinaryTree<char>();
     BNode<char> * outputRoot = new BNode<char>();
     outputRoot->setInfo(preOrder[0]);
-    return buildTree(preOrder, inOrder, outputRoot);
+    output->setRoot(buildTree(preOrder, inOrder, outputRoot));
+    return output;
 }
 
 // REQUIRES: preOrder and inOrder have the same length.
 // MODIFIES: None.
 // EFFECTS : Builds a string from an in-order and pre-order stream of characters and a root outputRoot.
-BinaryTree<char> * buildTree(string preOrder, string inOrder, BNode<char> * outputRoot){
-    BinaryTree<char> * output = new BinaryTree<char>();
-    output->setRoot(outputRoot);
-    string dummy;
+BNode<char> * buildTree(string preOrder, string inOrder, BNode<char> * outputRoot){
+    BNode<char> * left = nullptr;
+    BNode<char> * right = nullptr;
+    
     for (int i = 1 ; i < inOrder.size(); i++) {
-        dummy = dummy + preOrder[i];
         if (inOrder[i] == outputRoot->getInfo()) {
+            left = new BNode<char>(preOrder[1]);
+            right = new BNode<char>(preOrder[i+1]);
+            inOrder.erase(inOrder.size() - i);
+            inOrder.erase(i);
+            inOrder.erase(i - 1);
+            preOrder.erase(i + 1);
+            preOrder.erase(1);
+            preOrder.erase(0);
+            
+            left = buildTree(preOrder, inOrder, left);
+            right = buildTree(preOrder, inOrder, right);
+            
             break;
         }
     }
-    cout << dummy << endl;
-    return output; //STUB
+ 
+    outputRoot->setLeft(left);
+    outputRoot->setRight(right);
+    return outputRoot; //STUB
 }
