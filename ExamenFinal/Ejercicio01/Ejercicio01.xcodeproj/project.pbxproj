@@ -25,6 +25,9 @@
 /* Begin PBXFileReference section */
 		D47BBD2B1B0268D500533BEC /* Ejercicio01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Ejercicio01; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47BBD2E1B0268D500533BEC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D47BBD351B0269C900533BEC /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Vertex.h; path = ../../../../tc1018/Tema_7_Estructuras_no_lineales/Graph/Graph/Vertex.h; sourceTree = "<group>"; };
+		D47BBD361B0269C900533BEC /* Edge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Edge.h; path = ../../../../tc1018/Tema_7_Estructuras_no_lineales/Graph/Graph/Edge.h; sourceTree = "<group>"; };
+		D47BBD371B0269C900533BEC /* Graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Graph.h; path = ../../../../tc1018/Tema_7_Estructuras_no_lineales/Graph/Graph/Graph.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				D47BBD2E1B0268D500533BEC /* main.cpp */,
+				D47BBD351B0269C900533BEC /* Vertex.h */,
+				D47BBD361B0269C900533BEC /* Edge.h */,
+				D47BBD371B0269C900533BEC /* Graph.h */,
 			);
 			path = Ejercicio01;
 			sourceTree = "<group>";
