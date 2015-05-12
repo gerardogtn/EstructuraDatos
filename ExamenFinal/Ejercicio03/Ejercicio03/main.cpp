@@ -42,12 +42,8 @@ BNode<char> * buildTree(string preOrder, string inOrder, BNode<char> * outputRoo
         if (inOrder[i] == outputRoot->getInfo()) {
             left = new BNode<char>(preOrder[1]);
             right = new BNode<char>(preOrder[i+1]);
-            inOrder.erase(inOrder.size() - i);
-            inOrder.erase(i);
-            inOrder.erase(i - 1);
-            preOrder.erase(i + 1);
-            preOrder.erase(1);
-            preOrder.erase(0);
+            inOrder.erase(inOrder.begin() + i - 1);
+            preOrder.erase(preOrder.begin());
             
             left = buildTree(preOrder, inOrder, left);
             right = buildTree(preOrder, inOrder, right);
