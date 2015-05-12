@@ -15,7 +15,8 @@ using namespace std;
 
 void printMatrix(int matrix[N][N]);
 void sierpinski(int matrix[N][N]);
-void sierpinski(int matrix[N][N], int current);
+void sierpinski(int matrix[N][N], int current, int step);
+int power(int base, int exponent);
 
 
 
@@ -50,31 +51,34 @@ void printMatrix(int m[N][N]){
 // MODIFIES: matrix.
 // EFFECTS : Simulates Sierpinski carpet on matrix.
 void sierpinski(int matrix[N][N]){
-    sierpinski(matrix, N);
+    sierpinski(matrix, N, 2);
 }
 
 // REQUIRES: A square matrix.
 // MODIFIES: matrix.
 // EFFECTS : Simulates Sierpinski carpet on matrix.
-void sierpinski(int matrix[N][N], int size){
+void sierpinski(int matrix[N][N], int size, int step){
     if (size <= 1) {
         return;
     } else {
-
-        int i0 = size / 3;
-        int i  = size / 3;
-        int j  = i;
-        int a  = i * i;
         
-        for (int p = 0; p <= a; p++) {
-            matrix[j - 1][i - 1] = 1;
-            if (p % i0  == 0) {
-                j++;
-                i = i0;
+        for (int j = 1; j <= step; j++) {
+            int i0 = size * j / 3;
+            int i  = size * j / 3;
+            int k  = i * j;
+            int a  = size * size / 9;
+            
+            for (int p = 0; p <= a; p++) {
+                matrix[k - 1][i - 1] = 1;
+                if (p % i0  == 0) {
+                    k++;
+                    i = i0;
+                }
+                i++;
             }
-            i++;
         }
         
-        sierpinski(matrix, size/3);
+        
+        sierpinski(matrix, size/3, step * 2);
     }
 }
